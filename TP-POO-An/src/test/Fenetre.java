@@ -1,4 +1,4 @@
-package gui;
+package test;
 
 /**
 * Example of a Fenetre (JFrame) using awt and swing

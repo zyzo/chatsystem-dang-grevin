@@ -73,7 +73,7 @@ public class CommunicationWindow extends JFrame implements ActionListener {
 			String msg = sendTextArea.getText();
 			try {
 				System.out.println("Writing " + msg);
-				writer.write(msg);
+				writer.write(this.username + " : " + msg);
 				writer.newLine();
 				writer.flush();
 			} catch (IOException e) {

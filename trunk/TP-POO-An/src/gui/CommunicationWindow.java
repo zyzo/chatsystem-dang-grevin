@@ -17,6 +17,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import net.ListenSocket;
+
 public class CommunicationWindow extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final int TEXT_AREA_HEIGHT = 4;
@@ -32,12 +34,13 @@ public class CommunicationWindow extends JFrame implements ActionListener {
 	private JButton sendButton;
 	private JButton receiveButton;
 	private BufferedWriter writer;
-	private BufferedReader reader;
+	private ListenSocket listenSocket;
 	private String username;
 	
-	public CommunicationWindow(String username, BufferedWriter writer, BufferedReader reader) {
+	public CommunicationWindow(String username, BufferedWriter writer, ListenSocket ls) {
 		this.writer = new BufferedWriter(writer);
-		this.reader = new BufferedReader(reader, BUFFER_MAX_SIZE);
+		this.listenSocket = ls;
+		this.listenSocket.start();
 		this.username = username;
 		initComponents();
 	}
@@ -80,40 +83,12 @@ public class CommunicationWindow extends JFrame implements ActionListener {
 				e.printStackTrace();
 			}
 		} else if (cmd == RECEIVE_BUTTON_CMD) { 
-			try {                  
-				if (reader.ready()) {
-					String msg = reader.readLine();
-					System.out.println("Reading " + msg);
-					receiveMessageTA.setText(msg);
-				} else {
-					System.out.println("Try next time bro");
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			String msg = listenSocket.getLastLine();
+			System.out.println("Reading " + msg);
+			receiveMessageTA.setText(msg);
 		} else { 
 			throw new RuntimeException("Action not recognized : " + cmd);
 		}
 	}
-	
-	@SuppressWarnings("unused")
-	public static void main(String[] args) throws IOException {
-		BufferedWriter w1 = null;
-		BufferedReader r1 = null;
-		BufferedWriter w2 = null;
-		BufferedReader r2 = null;
-		try {
-			w1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("A2B.txt")));
-			r1 = new BufferedReader(new InputStreamReader(new FileInputStream("A2B.txt")));
-			w2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("B2A.txt")));
-			r2 = new BufferedReader(new InputStreamReader(new FileInputStream("B2A.txt")));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		CommunicationWindow a = new CommunicationWindow("Songoku", w1, r2);
-		CommunicationWindow b = new CommunicationWindow("Cadic", w2, r1);
-	}
-
 
 }

@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 import net.CommunicaTCPClient;
+import net.ListenSocket;
 
 public class TestTCPClient {
 	private static final String NAME = "pascal";
@@ -22,6 +23,6 @@ public class TestTCPClient {
    	 	out.write(NAME);
    	 	out.newLine();
    	 	out.flush();
-   	 	CommunicationWindow gui = new CommunicationWindow(NAME, out, in);
+   	 	CommunicationWindow gui = new CommunicationWindow(NAME, out, new ListenSocket(in));
 	}
 }

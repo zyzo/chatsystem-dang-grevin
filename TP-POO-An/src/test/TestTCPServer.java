@@ -7,10 +7,10 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.net.Socket;
 
 import net.CommunicaTCPServer;
+import net.ListenSocket;
 
 public class TestTCPServer {
 	public static void main(String[] args) throws IOException {
@@ -19,7 +19,7 @@ public class TestTCPServer {
 			Socket s = server.accept();
 			BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
-			CommunicationWindow gui = new CommunicationWindow("lebotlan to " + in.readLine(), out, in);
+			CommunicationWindow gui = new CommunicationWindow("lebotlan to " + in.readLine(), out, new ListenSocket(in));
 		}
 	}
 }

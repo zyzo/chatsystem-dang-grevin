@@ -3,27 +3,23 @@ package gui;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
+import launch.MainEntry;
 import net.ListenSocket;
 
 public class CommunicationWindow extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static final int TEXT_AREA_HEIGHT = 4;
 	private static final int TEXT_AREA_WIDTH = 30;
-	private static final int BUFFER_MAX_SIZE = TEXT_AREA_HEIGHT*TEXT_AREA_WIDTH;
 	private static final String SEND_BUTTON_CMD = "SEND_BUTTON";
 	private static final String RECEIVE_BUTTON_CMD = "RECEIVE_BUTTON";
 	
@@ -40,9 +36,9 @@ public class CommunicationWindow extends JFrame implements ActionListener {
 	public CommunicationWindow(String username, BufferedWriter writer, ListenSocket ls) {
 		this.writer = new BufferedWriter(writer);
 		this.listenSocket = ls;
-		this.listenSocket.start();
 		this.username = username;
 		initComponents();
+		this.listenSocket.start();
 	}
 
 	private void initComponents() {
@@ -63,7 +59,14 @@ public class CommunicationWindow extends JFrame implements ActionListener {
 		this.add(receiveButton);
 		this.add(receiveMessageLB);
 		this.add(receiveMessageTA);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				super.windowClosing(e);
+				System.out.println("Active close socket");
+				MainEntry.close();
+			}
+		});
 		this.setTitle("Yahoo! Chat " + username);
 		this.pack();
 		this.setVisible(true);
@@ -89,6 +92,12 @@ public class CommunicationWindow extends JFrame implements ActionListener {
 		} else { 
 			throw new RuntimeException("Action not recognized : " + cmd);
 		}
+	}
+
+	public void close() throws IOException {
+		writer.close();
+		listenSocket.close();
+		this.setVisible(false);
 	}
 
 }

@@ -66,6 +66,7 @@ public class Fenetre extends JFrame {
 	
 	/** main entry point */
 	public static void main(String[] args) {
+	   @SuppressWarnings("unused")
 	   Fenetre f = new Fenetre();
 	}
 }

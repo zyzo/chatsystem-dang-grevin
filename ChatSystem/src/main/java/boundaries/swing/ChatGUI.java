@@ -1,8 +1,9 @@
 package boundaries.swing;
 
 
-public class ChatGUI {
 
+public class ChatGUI {
+	
     private ChatGUI() {
 
     }
@@ -14,4 +15,10 @@ public class ChatGUI {
             instance = new ChatGUI();
         return instance;
     }
+    
+    public static void main(String[] args) {
+    	ChatGUI gui = new ChatGUI();
+    	WelcomeWindow welcome= new WelcomeWindow(gui);
+    	
+      }
 }

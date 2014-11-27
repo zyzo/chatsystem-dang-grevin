@@ -21,7 +21,7 @@ public class ChatNI {
         // TODO
     }
 
-    void receiveHello() {
+    void processHello() {
 
     }
 

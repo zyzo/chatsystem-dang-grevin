@@ -6,6 +6,9 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import controller.ChatController;
 
 public class ChatNI {
@@ -30,7 +33,7 @@ public class ChatNI {
 		}
     }
 
-    void sendHello() {
+    public void sendHello() {
         byte[] msg = JSONUtils.constructHello().toString().getBytes();
         try {
 			InetAddress address = InetAddress.getByName("localhost");
@@ -60,8 +63,23 @@ public class ChatNI {
     }
 
 	public void receiveMessage(byte[] data) {
-		// TODO Auto-generated method stub
 		
+		JSONObject obj = JSONUtils.byteToJson(data);
+		try {
+			if(obj.get("type").equals("hello")){
+				System.out.println("HELLO receive");			
+				
+			}
+			else if(obj.get("type").equals("helloAck"))
+				System.out.println("HELLOACK receive");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		  
+		
+				
 	}
+	
 
 }

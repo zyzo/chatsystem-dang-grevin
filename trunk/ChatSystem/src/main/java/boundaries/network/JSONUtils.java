@@ -1,12 +1,14 @@
 package boundaries.network;
 
 
+import org.json.JSONObject;
+
 import model.User;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JSONUtils {
+public class JSONUtils extends JSONObject{
 
 	public static byte[] constructHello() {
 		User me = new User("AéA");
@@ -19,5 +21,6 @@ public class JSONUtils {
 		}
 		return null;
 	}
+	
 	
 }

@@ -19,14 +19,13 @@ public class ChatWindow extends JFrame implements ActionListener {
     private static final String SEND_BUTTON_TITLE = "Send";
     private static final String SEND_BUTTON_CMD = "Send";
 
-    private ChatGUI chatGUI;
+    private ChatGUI chatGUI = ChatGUI.getInstance();
     private User remoteUser;
     private JButton sendButton;
 
     public ChatWindow(User remoteUser) {
         this.remoteUser = remoteUser;
         this.initComponents();
-        chatGUI.getInstance();
     }
 
     private void initComponents() {

@@ -17,5 +17,17 @@ public class JSONUtils {
 		return obj;
 	}
 	
+	public static JSONObject byteToJson(byte [] buffer){
+		JSONObject obj = null;
+		try {
+			obj = new JSONObject(new String(buffer));
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return obj;
+		}
+
 	
 }

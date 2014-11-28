@@ -18,7 +18,7 @@ public class UDPSender {
 		DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address,port);
 		try {
 			socket.send(packet);
-			System.out.println("Envoi de " +buffer);
+			System.out.println("Envoi de " + new String(buffer));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

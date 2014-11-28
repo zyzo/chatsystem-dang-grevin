@@ -20,7 +20,7 @@ public class ChatNI {
     private ChatNI() {
     	try {
 			DatagramSocket udpsocket = new DatagramSocket(4444);
-			System.out.println("Socket cr�e");
+			System.out.println("Socket créé");
 			udpSender = new UDPSender(udpsocket,4444);
 			udpReceiver = new UDPReceiver(udpsocket,this,4444);
 			udpReceiver.start();
@@ -31,10 +31,10 @@ public class ChatNI {
     }
 
     void sendHello() {
-        byte[] buffer = "HELLO".getBytes();
+        byte[] msg = JSONUtils.constructHello().toString().getBytes();
         try {
 			InetAddress address = InetAddress.getByName("localhost");
-			udpSender.send(buffer, address);
+			udpSender.send(msg, address);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,5 +58,10 @@ public class ChatNI {
     	ChatNI.getInstance().sendHello();
     	
     }
+
+	public void receiveMessage(byte[] data) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

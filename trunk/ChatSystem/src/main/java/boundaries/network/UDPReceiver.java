@@ -7,14 +7,14 @@ import java.net.DatagramSocket;
 public class UDPReceiver extends Thread {
 	
 	private DatagramSocket socket;
-	private  ChatNI network;
+	private  ChatNI chatNI;
 	private int port;
 
 	
-	public UDPReceiver(DatagramSocket socket, ChatNI network, int port){
+	public UDPReceiver(DatagramSocket socket, ChatNI chatNI, int port){
 		
 		this.socket=socket;
-		this.network=network;
+		this.chatNI=chatNI;
 		this.port=port;
 		
 	}
@@ -25,7 +25,8 @@ public class UDPReceiver extends Thread {
     	while(true){
     		try {
 				socket.receive(packet);
-				System.out.println(packet.getData());
+				System.out.println("Received" + new String(packet.getData()));
+				chatNI.receiveMessage(packet.getData());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

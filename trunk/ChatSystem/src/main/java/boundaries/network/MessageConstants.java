@@ -7,5 +7,6 @@ public class MessageConstants {
 	
 	public static final String TYPE_HELLO = "hello";
 	public static final String TYPE_HELLO_ACK = "helloAck";
+	public static final String TYPE_GOOD_BYE = "goodBye";
 
 }

@@ -6,28 +6,43 @@ import org.json.JSONObject;
 
 public class JSONUtils {
 
-	public static JSONObject constructHello() {
+	public static JSONObject constructHello(String nickname) {
 		JSONObject obj = new JSONObject();
 		try {
 			obj.put(MessageConstants.ATT_TYPE, MessageConstants.TYPE_HELLO);
 			// TODO : get username from model
-			obj.put(MessageConstants.ATT_USERNAME, "Frédéric Yolo");
+			obj.put(MessageConstants.ATT_USERNAME, nickname);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		return obj;
 	}
 	
-	public static JSONObject constructHelloAck() {
+	public static JSONObject constructHelloAck(String nickname) {
 		JSONObject obj = new JSONObject();
 		try {
 			obj.put(MessageConstants.ATT_TYPE, MessageConstants.TYPE_HELLO_ACK);
 			// TODO : get username from model
-			obj.put(MessageConstants.ATT_USERNAME, "Frédéric Yolo");
+			obj.put(MessageConstants.ATT_USERNAME, nickname);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		return obj;
+	}
+	
+	public static JSONObject constructGoodBye(String nickname){
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put(MessageConstants.ATT_TYPE, MessageConstants.TYPE_GOOD_BYE);
+		
+			obj.put(MessageConstants.ATT_USERNAME, nickname);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return obj;
+		
 	}
 	
 	public static JSONObject byteToJson(byte [] buffer){

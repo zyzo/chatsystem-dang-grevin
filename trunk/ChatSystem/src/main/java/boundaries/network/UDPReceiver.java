@@ -3,6 +3,7 @@ package boundaries.network;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 
 public class UDPReceiver extends Thread {
 	
@@ -26,7 +27,9 @@ public class UDPReceiver extends Thread {
     		try {
 				socket.receive(packet);
 				System.out.println("Received" + new String(packet.getData()));
-				chatNI.receiveMessage(packet.getData());
+				
+				chatNI.receiveMessage(packet.getData(), packet.getAddress());
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

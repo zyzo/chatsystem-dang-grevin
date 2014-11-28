@@ -18,13 +18,12 @@ public class UserListWindow extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-    private ChatGUI chatGUI;
+    private ChatGUI chatGUI = ChatGUI.getInstance();
     private JList<User> usersList;
     private JLabel myName;
 
     public UserListWindow() {
         initComponents();
-        chatGUI = ChatGUI.getInstance();
     }
 
     private void initComponents() {

@@ -12,20 +12,20 @@ import javax.swing.JTextField;
 
 public class WelcomeWindow extends JFrame implements ActionListener{
 	
+	private static final long serialVersionUID = 1L;
+
 	private JButton buttonConnect;
 	private JLabel label;
 	private JTextField textNickname;
-	private ChatGUI gui;
+	private ChatGUI chatGUI = ChatGUI.getInstance();
 	
-	public WelcomeWindow(ChatGUI gui){
-		this.gui= gui;
+	public WelcomeWindow(){
 		initComponents();
-		
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
 		System.out.println("CONNEXION "+textNickname.getText());
+		chatGUI.processHello();
 	}
 	
 	private void initComponents(){

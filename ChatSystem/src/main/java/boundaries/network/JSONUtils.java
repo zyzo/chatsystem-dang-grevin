@@ -1,25 +1,20 @@
 package boundaries.network;
 
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import model.User;
+public class JSONUtils {
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-public class JSONUtils extends JSONObject{
-
-	public static byte[] constructHello() {
-		User me = new User("AéA");
-		ObjectMapper mapper = new ObjectMapper();
+	public static JSONObject constructHello() {
+		JSONObject obj = new JSONObject();
 		try {
-			return mapper.writeValueAsBytes(me);
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			obj.put("type", "hello");
+			obj.put("userName", "I am Frédéric Yolo");
+		} catch (JSONException e1) {
+			e1.printStackTrace();
 		}
-		return null;
+		return obj;
 	}
 	
 	

@@ -34,7 +34,7 @@ public class ChatNI {
     }
 
     public void sendHello() {
-        byte[] msg = JSONUtils.constructHello().toString().getBytes();
+        byte[] msg = JSONUtils.constructHello(chatControler.getMe().getName()).toString().getBytes();
         try {
 			InetAddress address = InetAddress.getByName("255.255.255.255");
 			udpSender.send(msg, address);
@@ -44,9 +44,21 @@ public class ChatNI {
 		}
         
     }
-
-    void processHello() {
-
+    
+    public void sendHelloAck(InetAddress ip){
+    	byte[] msg = JSONUtils.constructHelloAck(chatControler.getMe().getName()).toString().getBytes();
+    	udpSender.send(msg,ip);
+    }
+    
+    public void sendGoodBye(){
+    	byte[] msg = JSONUtils.constructGoodBye(chatControler.getMe().getName()).toString().getBytes();
+    	try {
+			udpSender.send(msg, InetAddress.getByName("192.168.0.255"));
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
     }
 
     private static ChatNI instance;
@@ -57,19 +69,26 @@ public class ChatNI {
         return instance;
     }
     
-    public static void main(String[] args){
-    	ChatNI.getInstance().sendHello();
-    	
-    }
 
-	public void receiveMessage(byte[] data) {
+
+	public void receiveMessage(byte[] data, InetAddress ip) {
 		JSONObject obj = JSONUtils.byteToJson(data);
 		try {
 			if(obj.get("type").equals(MessageConstants.TYPE_HELLO)){
-				System.out.println("HELLO receive");		
+				System.out.println("HELLO receive");
+				chatControler.processHello(obj.getString("userName"), ip);
 			}
-			else if(obj.get("type").equals(MessageConstants.TYPE_HELLO_ACK))
+			else if(obj.get("type").equals(MessageConstants.TYPE_HELLO_ACK)){
 				System.out.println("HELLOACK receive");
+				chatControler.processHelloAck(obj.getString("userName"), ip);
+			}
+			else if(obj.get("type").equals(MessageConstants.TYPE_GOOD_BYE)){
+				System.out.println("GOODBYE receive");
+				chatControler.processGoodbye(obj.getString("userName"), ip);
+			}
+				
+		
+				
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,6 +96,10 @@ public class ChatNI {
 		  
 		
 				
+	}
+
+	public void setChatControler(ChatController chatControler) {
+		this.chatControler = chatControler;
 	}
 	
 

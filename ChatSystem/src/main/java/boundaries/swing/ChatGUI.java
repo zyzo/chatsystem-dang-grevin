@@ -40,7 +40,7 @@ public class ChatGUI {
     }
 
 	protected void processHello() {
-		chatController.processHello();
+		chatController.performHello();
 		welcome.setVisible(false);
 		usersListwindow = new UserListWindow();
 	}

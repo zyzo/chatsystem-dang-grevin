@@ -9,8 +9,8 @@ public class JSONUtils {
 	public static JSONObject constructHello() {
 		JSONObject obj = new JSONObject();
 		try {
-			obj.put("type", "hello");
-			obj.put("userName", "I am Frédéric Yolo");
+			obj.put(MessageConstants.ATT_TYPE, MessageConstants.TYPE_HELLO);
+			obj.put(MessageConstants.ATT_USERNAME, "I am Frédéric Yolo");
 		} catch (JSONException e1) {
 			e1.printStackTrace();
 		}
@@ -27,7 +27,7 @@ public class JSONUtils {
 			e.printStackTrace();
 		}
 		return obj;
-		}
+	}
 
 	
 }

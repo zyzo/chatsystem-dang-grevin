@@ -14,6 +14,6 @@ public class JSONUtilsTest {
 	@Test
 	public void testConvertByteToJONObject() throws JSONException {
 		byte[] s = "{type : abc}".getBytes();
-		System.out.println(new JSONObject(new String(s)));
+		System.out.println(JSONUtils.byteToJson(s));
 	}
 }

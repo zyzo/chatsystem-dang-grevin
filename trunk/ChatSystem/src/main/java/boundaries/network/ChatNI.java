@@ -66,11 +66,10 @@ public class ChatNI {
 		
 		JSONObject obj = JSONUtils.byteToJson(data);
 		try {
-			if(obj.get("type").equals("hello")){
+			if(obj.get("type").equals(MessageConstants.TYPE_HELLO)){
 				System.out.println("HELLO receive");			
-				
 			}
-			else if(obj.get("type").equals("helloAck"))
+			else if(obj.get("type").equals(MessageConstants.TYPE_HELLO_ACK))
 				System.out.println("HELLOACK receive");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

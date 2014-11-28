@@ -11,6 +11,7 @@ public class ChatGUI {
 
     private Map<User, ChatWindow> chatWindows;
     private WelcomeWindow welcome;
+    private UserListWindow usersListwindow;
     private ChatController chatController =  ChatController.getInstance();;
     
     private ChatGUI() {
@@ -24,7 +25,7 @@ public class ChatGUI {
             instance = new ChatGUI();
         return instance;
     }
-
+    
     protected void createChatWindow(User user) {
         chatWindows.put(user, new ChatWindow(user));
     }
@@ -34,13 +35,14 @@ public class ChatGUI {
     }
     
     public static void main(String[] args) {
-    	ChatGUI gui = new ChatGUI();
-    	WelcomeWindow welcome= new WelcomeWindow();
+    	ChatGUI gui = ChatGUI.getInstance();
+    	gui.welcome = new WelcomeWindow();
     }
 
 	protected void processHello() {
 		chatController.processHello();
+		welcome.setVisible(false);
+		usersListwindow = new UserListWindow();
 	}
-	
 
 }

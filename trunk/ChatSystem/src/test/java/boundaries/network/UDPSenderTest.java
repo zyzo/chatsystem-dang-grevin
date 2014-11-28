@@ -8,9 +8,9 @@ public class UDPSenderTest {
     UDPSender udpSender;
 
     @Before
-    public void init() {
-        udpSender = new UDPSender();
-    }
+  //  public void init() {
+     //   udpSender = new UDPSender();
+   // }
     
     @Test
     public void testSendHello() {

@@ -42,5 +42,9 @@ public class WelcomeWindow extends JFrame implements ActionListener{
 		
 	}
 	
+	public String getUserName(){
+		return textNickname.getText();
+	}
+	
 
 }

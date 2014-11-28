@@ -22,10 +22,10 @@ public class ChatNI {
 
     private ChatNI() {
     	try {
-			DatagramSocket udpsocket = new DatagramSocket(4444);
+			DatagramSocket udpsocket = new DatagramSocket(1337);
 			System.out.println("Socket créé");
-			udpSender = new UDPSender(udpsocket,4444);
-			udpReceiver = new UDPReceiver(udpsocket,this,4444);
+			udpSender = new UDPSender(udpsocket,1337);
+			udpReceiver = new UDPReceiver(udpsocket,this,1337);
 			udpReceiver.start();
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block
@@ -36,7 +36,7 @@ public class ChatNI {
     public void sendHello() {
         byte[] msg = JSONUtils.constructHello().toString().getBytes();
         try {
-			InetAddress address = InetAddress.getByName("localhost");
+			InetAddress address = InetAddress.getByName("255.255.255.255");
 			udpSender.send(msg, address);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
@@ -63,11 +63,10 @@ public class ChatNI {
     }
 
 	public void receiveMessage(byte[] data) {
-		
 		JSONObject obj = JSONUtils.byteToJson(data);
 		try {
 			if(obj.get("type").equals(MessageConstants.TYPE_HELLO)){
-				System.out.println("HELLO receive");			
+				System.out.println("HELLO receive");		
 			}
 			else if(obj.get("type").equals(MessageConstants.TYPE_HELLO_ACK))
 				System.out.println("HELLOACK receive");

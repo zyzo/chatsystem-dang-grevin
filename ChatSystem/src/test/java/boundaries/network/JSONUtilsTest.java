@@ -12,6 +12,11 @@ public class JSONUtilsTest {
 	}
 	
 	@Test
+	public void testConstructHelloAck() {
+		System.out.println(JSONUtils.constructHelloAck());
+	}
+	
+	@Test
 	public void testConvertByteToJONObject() throws JSONException {
 		byte[] s = "{type : abc}".getBytes();
 		System.out.println(JSONUtils.byteToJson(s));

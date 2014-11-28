@@ -10,9 +10,22 @@ public class JSONUtils {
 		JSONObject obj = new JSONObject();
 		try {
 			obj.put(MessageConstants.ATT_TYPE, MessageConstants.TYPE_HELLO);
-			obj.put(MessageConstants.ATT_USERNAME, "I am Frédéric Yolo");
-		} catch (JSONException e1) {
-			e1.printStackTrace();
+			// TODO : get username from model
+			obj.put(MessageConstants.ATT_USERNAME, "Frédéric Yolo");
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return obj;
+	}
+	
+	public static JSONObject constructHelloAck() {
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put(MessageConstants.ATT_TYPE, MessageConstants.TYPE_HELLO_ACK);
+			// TODO : get username from model
+			obj.put(MessageConstants.ATT_USERNAME, "Frédéric Yolo");
+		} catch (JSONException e) {
+			e.printStackTrace();
 		}
 		return obj;
 	}
@@ -23,7 +36,6 @@ public class JSONUtils {
 			obj = new JSONObject(new String(buffer));
 			
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return obj;

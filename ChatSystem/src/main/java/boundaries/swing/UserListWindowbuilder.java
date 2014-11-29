@@ -59,6 +59,7 @@ public class UserListWindowbuilder extends JFrame implements MouseListener{
 		// TODO Auto-generated method stub
 		if(e.getClickCount()==2){
 			System.out.println("CREATION CHATWINDOW");
+			chatgui.createChatWindow(list.getSelectedValue());
 		}
 	}
 

@@ -17,10 +17,10 @@ public class WelcomeWindow extends JFrame implements ActionListener{
 	private JButton buttonConnect;
 	private JLabel label;
 	private JTextField textNickname ;
-	private ChatGUI chatGUI;
+	private ChatGUI chatGUI ;
 	
 	public WelcomeWindow(ChatGUI chatGUI){
-		this.chatGUI =chatGUI;
+		this.chatGUI=chatGUI;
 		initComponents();
 	}
 	@Override

@@ -59,6 +59,10 @@ public class ChatGUI{
 		this.chatController = chatController;
 	}
 	
+	public void performGoodBye(){
+		chatController.performGoodbye();
+	}
+	
 	
 	public void addUser(User user){
 		this.ulwb.addUser(user);

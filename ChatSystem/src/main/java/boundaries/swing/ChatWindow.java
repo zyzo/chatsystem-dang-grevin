@@ -52,10 +52,11 @@ public class ChatWindow extends JFrame implements ActionListener {
 		textField.setBounds(10, 221, 303, 20);
 		getContentPane().add(textField);
 		textField.setColumns(10);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addWindowFocusListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
-                // TODO : remove the chat window from the map
+                System.out.println("FERMETURE");
             }
         });
         this.setTitle(this.remoteUser.getName());

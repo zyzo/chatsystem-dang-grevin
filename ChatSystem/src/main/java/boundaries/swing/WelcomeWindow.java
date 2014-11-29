@@ -16,10 +16,11 @@ public class WelcomeWindow extends JFrame implements ActionListener{
 
 	private JButton buttonConnect;
 	private JLabel label;
-	private JTextField textNickname;
-	private ChatGUI chatGUI = ChatGUI.getInstance();
+	private JTextField textNickname ;
+	private ChatGUI chatGUI;
 	
-	public WelcomeWindow(){
+	public WelcomeWindow(ChatGUI chatGUI){
+		this.chatGUI =chatGUI;
 		initComponents();
 	}
 	@Override
@@ -37,6 +38,7 @@ public class WelcomeWindow extends JFrame implements ActionListener{
 		this.add("West",label);
 		this.add("Center",textNickname);
 		this.add("East",buttonConnect);
+		this.setTitle("Welcome Chat");
 		this.pack();
 		this.setVisible(true);
 		
@@ -46,5 +48,8 @@ public class WelcomeWindow extends JFrame implements ActionListener{
 		return textNickname.getText();
 	}
 	
+	public JTextField getTextNickname() {
+		return textNickname;
+	}
 
 }

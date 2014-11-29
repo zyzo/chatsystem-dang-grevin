@@ -26,7 +26,7 @@ public class WelcomeWindow extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("CONNEXION "+textNickname.getText());
-		chatGUI.processHello();
+		chatGUI.performHello();
 	}
 	
 	private void initComponents(){

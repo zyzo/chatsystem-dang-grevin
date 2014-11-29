@@ -1,6 +1,8 @@
 package boundaries.swing;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,8 +11,12 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import model.User;
+
+import javax.swing.SwingConstants;
 
 public class ChatWindow extends JFrame implements ActionListener {
 
@@ -19,22 +25,34 @@ public class ChatWindow extends JFrame implements ActionListener {
     private static final String SEND_BUTTON_TITLE = "Send";
     private static final String SEND_BUTTON_CMD = "Send";
 
-    private ChatGUI chatGUI = ChatGUI.getInstance();
+    private ChatGUI chatGUI;
     private User remoteUser;
     private JButton sendButton;
+    private JTextArea textArea;
+    private JTextField textField;
 
     public ChatWindow(User remoteUser) {
+    	//this.chatGUI = chatGUI;
         this.remoteUser = remoteUser;
         this.initComponents();
     }
 
     private void initComponents() {
-        sendButton = new JButton(SEND_BUTTON_TITLE);
-        sendButton.setMargin(new Insets(25, 50, 25, 50));
-        sendButton.addActionListener(this);
-        sendButton.setActionCommand(SEND_BUTTON_CMD);
-        this.setLayout(new FlowLayout());
-        this.add(sendButton);
+		getContentPane().setLayout(null);
+		this.setTitle(remoteUser.toString());
+		sendButton = new JButton(SEND_BUTTON_TITLE);
+		sendButton.setBounds(323, 211, 101, 40);
+		sendButton.setActionCommand(SEND_BUTTON_CMD);
+		getContentPane().add(sendButton);
+		sendButton.addActionListener(this);
+		textArea = new JTextArea();
+		textArea.setBounds(10, 0, 414, 210);
+		getContentPane().add(textArea);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 221, 303, 20);
+		getContentPane().add(textField);
+		textField.setColumns(10);
         this.addWindowFocusListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
@@ -52,6 +70,11 @@ public class ChatWindow extends JFrame implements ActionListener {
             System.out.println("Sending Stuff..");
             //chatGUI.performSendMessage();
         }
+    }
+    
+    public static void main (String[] args){
+    	User remoteUser = new User("Bushido");
+    	ChatWindow cw = new ChatWindow(remoteUser);
     }
 
 }

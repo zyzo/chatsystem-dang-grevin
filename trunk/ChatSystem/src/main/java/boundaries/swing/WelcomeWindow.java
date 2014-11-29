@@ -39,6 +39,7 @@ public class WelcomeWindow extends JFrame implements ActionListener{
 		this.add("Center",textNickname);
 		this.add("East",buttonConnect);
 		this.setTitle("Welcome Chat");
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pack();
 		this.setVisible(true);
 		

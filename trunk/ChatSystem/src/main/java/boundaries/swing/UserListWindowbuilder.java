@@ -34,6 +34,7 @@ public class UserListWindowbuilder extends JFrame implements MouseListener{
 
 	
 	public void initComponents(){
+		this.addWindowListener(new WindowListenerUserList());
 		this.setLayout(new BorderLayout(0, 0));
 		
 		list = new JList<User>(dlm);

@@ -8,7 +8,7 @@ import controller.ChatController;
 import model.User;
 import model.UserList;
 
-public class ChatGUI  extends Observer {
+public class ChatGUI{
 
     private Map<User, ChatWindow> chatWindows;
     private WelcomeWindow welcome;
@@ -17,17 +17,15 @@ public class ChatGUI  extends Observer {
     private ChatController chatController;
 	private static ChatGUI instance;
 
-    private ChatGUI(UserList model){
-    	this.ul = model;
-    	this.ul.attach(this);
+    private ChatGUI(){
     	chatWindows = new HashMap<User, ChatWindow>();
     	welcome = new WelcomeWindow(this);
     }
     
 
-    public static ChatGUI getInstance(UserList model) {
+    public static ChatGUI getInstance() {
         if (instance == null)
-            instance = new ChatGUI (model);
+            instance = new ChatGUI ();
         return instance;
     }
     
@@ -49,12 +47,21 @@ public class ChatGUI  extends Observer {
 
 	}
 	
+	protected void performSendMessage(String message, User user){
+		chatController.performSendMessage(message, user);
+	}
+	
+	public void displayMessage(String message, User user){
+		
+	}
+	
 	public void setChatController(ChatController chatController) {
 		this.chatController = chatController;
 	}
 	
-	public void update(){
-		this.ulwb.addUser(ul.getLastChange());
+	
+	public void addUser(User user){
+		this.ulwb.addUser(user);
 	}
 
 }

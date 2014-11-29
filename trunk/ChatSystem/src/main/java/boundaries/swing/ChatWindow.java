@@ -25,14 +25,13 @@ public class ChatWindow extends JFrame implements ActionListener {
     private static final String SEND_BUTTON_TITLE = "Send";
     private static final String SEND_BUTTON_CMD = "Send";
 
-    private ChatGUI chatGUI;
+    private ChatGUI chatGUI = ChatGUI.getInstance();
     private User remoteUser;
     private JButton sendButton;
     private JTextArea textArea;
     private JTextField textField;
 
     public ChatWindow(User remoteUser) {
-    	//this.chatGUI = chatGUI;
         this.remoteUser = remoteUser;
         this.initComponents();
     }
@@ -68,13 +67,11 @@ public class ChatWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (SEND_BUTTON_CMD.equals(e.getActionCommand())) {
             System.out.println("Sending Stuff..");
+            textArea.append("Moi : "+textField.getText()+"\n"+"\r");
+            chatGUI.performSendMessage(textField.getText(), remoteUser);
             //chatGUI.performSendMessage();
         }
     }
     
-    public static void main (String[] args){
-    	User remoteUser = new User("Bushido");
-    	ChatWindow cw = new ChatWindow(remoteUser);
-    }
 
 }

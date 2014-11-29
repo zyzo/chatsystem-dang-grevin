@@ -18,7 +18,7 @@ public class UserList extends Observable{
 	}
 	
 	public void addUser(User user){
-		userList.put(user.hashCode(), user);
+		userList.put(user.getIp().hashCode(), user);
 		this.lastChange = user;
 		notifyAllObservers();
 	}

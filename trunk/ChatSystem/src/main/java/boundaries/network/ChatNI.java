@@ -60,6 +60,16 @@ public class ChatNI {
 		}
     	
     }
+    
+    public void sendMessage(String message, InetAddress ip){
+    	byte[] msg = JSONUtils.constructMessage(message).toString().getBytes();
+    	udpSender.send(msg,ip);
+    }
+    
+    public void sendMessageAck(InetAddress ip){
+    }
+    
+    
 
     private static ChatNI instance;
 
@@ -85,6 +95,9 @@ public class ChatNI {
 			else if(obj.get("type").equals(MessageConstants.TYPE_GOOD_BYE)){
 				System.out.println("GOODBYE receive");
 				chatControler.processGoodbye(obj.getString("userName"), ip);
+			}
+			else if(obj.get("type").equals(MessageConstants.TYPE_MESSAGE)){
+				System.out.println("Message Receive");
 			}
 				
 		

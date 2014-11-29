@@ -64,8 +64,4 @@ public class UserListWindow extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
-        @SuppressWarnings("unused")
-        UserListWindow window = new UserListWindow();
-    }
 }

@@ -12,10 +12,11 @@ public class ChatGUI {
     private Map<User, ChatWindow> chatWindows;
     private WelcomeWindow welcome;
     private UserListWindow usersListwindow;
-    private ChatController chatController =  ChatController.getInstance();;
+    private ChatController chatController;
     
     private ChatGUI() {
     	chatWindows = new HashMap<User, ChatWindow>();
+    	welcome = new WelcomeWindow(this);
     }
     
 	private static ChatGUI instance;
@@ -34,15 +35,17 @@ public class ChatGUI {
     	return welcome.getUserName();
     }
     
-    public static void main(String[] args) {
-    	ChatGUI gui = ChatGUI.getInstance();
-    	gui.welcome = new WelcomeWindow();
-    }
-
 	protected void processHello() {
-		chatController.performHello();
+		//System.out.println(welcome.getTextNickname().getText());
+		String nom ="";
+		nom = welcome.getTextNickname().getText();
+		chatController.performHello(nom);
 		welcome.setVisible(false);
 		usersListwindow = new UserListWindow();
+	}
+
+	public void setChatController(ChatController chatController) {
+		this.chatController = chatController;
 	}
 
 }

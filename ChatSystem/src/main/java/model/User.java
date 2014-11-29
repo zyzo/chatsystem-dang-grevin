@@ -3,6 +3,8 @@ package model;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
+
 
 public class User {
 

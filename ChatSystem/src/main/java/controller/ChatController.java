@@ -13,11 +13,12 @@ public class ChatController {
 
 	private static ChatController instance;
 	private ChatNI chatNI = ChatNI.getInstance();
-	private ChatGUI chatGUI = ChatGUI.getInstance();
+	private ChatGUI chatGUI;
 	private UserList userlist = new UserList();
 	private User me;
 	
 	private ChatController() {
+		chatGUI = ChatGUI.getInstance(userlist);
 		chatNI.setChatControler(this);
 		chatGUI.setChatController(this);
 		
@@ -47,16 +48,17 @@ public class ChatController {
 		System.out.println(userlist);
 		
 		if(!(userlist.getUserList().containsKey(user.hashCode()))){
-			userlist.getUserList().put(user.hashCode(), user);
+			userlist.addUser(user);
 			System.out.println(userlist.toString());	
 			chatNI.sendHelloAck(user.getIp());
 		}
 	}
 	
 	public void processHelloAck(String nickname, InetAddress ip){
-		
 		User user = new User(nickname,ip);
-		userlist.getUserList().put(user.hashCode(), user);
+		if(!(userlist.getUserList().containsKey(user.hashCode()))){
+			userlist.addUser(user);
+		}
 		
 		
 	}

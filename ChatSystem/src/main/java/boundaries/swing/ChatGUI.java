@@ -3,27 +3,31 @@ package boundaries.swing;
 import java.util.HashMap;
 import java.util.Map;
 
+import pattern.observer.Observer;
 import controller.ChatController;
-
 import model.User;
+import model.UserList;
 
-public class ChatGUI {
+public class ChatGUI  extends Observer {
 
     private Map<User, ChatWindow> chatWindows;
     private WelcomeWindow welcome;
     private UserListWindow usersListwindow;
+    private UserListWindowbuilder ulwb;
     private ChatController chatController;
-    
-    private ChatGUI() {
+	private static ChatGUI instance;
+
+    private ChatGUI(UserList model){
+    	this.ul = model;
+    	this.ul.attach(this);
     	chatWindows = new HashMap<User, ChatWindow>();
     	welcome = new WelcomeWindow(this);
     }
     
-	private static ChatGUI instance;
 
-    public static ChatGUI getInstance() {
+    public static ChatGUI getInstance(UserList model) {
         if (instance == null)
-            instance = new ChatGUI();
+            instance = new ChatGUI (model);
         return instance;
     }
     
@@ -35,17 +39,22 @@ public class ChatGUI {
     	return welcome.getUserName();
     }
     
-	protected void processHello() {
+	protected void performHello() {
 		//System.out.println(welcome.getTextNickname().getText());
 		String nom ="";
 		nom = welcome.getTextNickname().getText();
-		chatController.performHello(nom);
 		welcome.setVisible(false);
-		usersListwindow = new UserListWindow();
-	}
+		this.ulwb= new UserListWindowbuilder(this);
+		chatController.performHello(nom);
 
+	}
+	
 	public void setChatController(ChatController chatController) {
 		this.chatController = chatController;
+	}
+	
+	public void update(){
+		this.ulwb.addUser(ul.getLastChange());
 	}
 
 }

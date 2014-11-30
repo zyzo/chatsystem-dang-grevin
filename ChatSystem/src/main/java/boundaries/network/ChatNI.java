@@ -53,7 +53,7 @@ public class ChatNI {
     public void sendGoodBye(){
     	byte[] msg = JSONUtils.constructGoodBye(chatControler.getMe().getName()).toString().getBytes();
     	try {
-			udpSender.send(msg, InetAddress.getByName("192.168.0.255"));
+			udpSender.send(msg, InetAddress.getByName("255.255.255.255"));
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,6 +86,7 @@ public class ChatNI {
 		try {
 			if(obj.get("type").equals(MessageConstants.TYPE_HELLO)){
 				System.out.println("HELLO receive");
+				System.out.println(ip);
 				chatControler.processHello(obj.getString("userName"), ip);
 			}
 			else if(obj.get("type").equals(MessageConstants.TYPE_HELLO_ACK)){

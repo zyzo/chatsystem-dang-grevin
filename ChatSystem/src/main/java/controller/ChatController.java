@@ -64,6 +64,7 @@ public class ChatController {
 	}
 	
 	public void receiveMessage(String message, InetAddress ip){
+		System.out.println("Reception : " +message);
 	}
 	
 	public void processHelloAck(String nickname, InetAddress ip){

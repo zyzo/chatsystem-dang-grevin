@@ -1,9 +1,6 @@
 package boundaries.swing;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -18,13 +15,14 @@ import javax.swing.JTextField;
 
 import model.User;
 
-import javax.swing.SwingConstants;
-
 public class ChatWindow extends JFrame implements ActionListener {
 
-   // private static final long serialVersionUID = 1L;
 
-    private static final String SEND_BUTTON_TITLE = "Send";
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static final String SEND_BUTTON_TITLE = "Send";
     private static final String SEND_BUTTON_CMD = "Send";
 
     private ChatGUI chatGUI = ChatGUI.getInstance();
@@ -40,7 +38,7 @@ public class ChatWindow extends JFrame implements ActionListener {
     }
 
     private void initComponents() {
-    	this.setSize(400,400);
+    	
 		getContentPane().setLayout(null);
 		this.setTitle(remoteUser.toString());
 		sendButton = new JButton(SEND_BUTTON_TITLE);
@@ -56,14 +54,13 @@ public class ChatWindow extends JFrame implements ActionListener {
 		JScrollPane scrollPane = new JScrollPane();
 		panel.add(scrollPane);
 		
-		JTextArea textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
 		
 		textField = new JTextField();
 		textField.setBounds(10, 221, 303, 20);
 		getContentPane().add(textField);
 		textField.setColumns(10);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addWindowFocusListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
@@ -71,6 +68,7 @@ public class ChatWindow extends JFrame implements ActionListener {
             }
         });
         this.setTitle(this.remoteUser.getName());
+        this.setSize(400,400);
         this.pack();
         this.setVisible(true);
     }

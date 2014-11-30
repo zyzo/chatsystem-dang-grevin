@@ -3,10 +3,8 @@ package boundaries.swing;
 import java.util.HashMap;
 import java.util.Map;
 
-import pattern.observer.Observer;
 import controller.ChatController;
 import model.User;
-import model.UserList;
 
 public class ChatGUI{
 

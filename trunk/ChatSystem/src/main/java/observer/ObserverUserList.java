@@ -1,7 +1,8 @@
-package boundaries.swing;
+package observer;
 
 import model.UserList;
 import boundaries.network.ChatNI;
+import boundaries.swing.ChatGUI;
 import pattern.observer.Observer;
 
 public class ObserverUserList extends Observer{
@@ -13,7 +14,7 @@ public class ObserverUserList extends Observer{
 
 	@Override
 	public void update() {
-		ChatGUI.getInstance().addUser(ul.getLastChange());
+		ChatGUI.getInstance().updateList(ul.getUserListCollection());
 	}
 
 }

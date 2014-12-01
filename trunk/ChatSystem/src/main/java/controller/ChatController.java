@@ -3,9 +3,9 @@ package controller;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import observer.ObserverUserList;
 import boundaries.network.ChatNI;
 import boundaries.swing.ChatGUI;
-import boundaries.swing.ObserverUserList;
 import model.User;
 import model.UserList;
 
@@ -56,15 +56,17 @@ public class ChatController {
 		User user = new User(nickname, ip);
 		System.out.println(userlist);
 		
-		if(!(userlist.getUserList().containsKey(user.getIp().hashCode()))){
+		//if(!(userlist.getUserList().containsKey(user.getIp().hashCode()))){
 			userlist.addUser(user);
 			System.out.println(userlist.toString());	
 			chatNI.sendHelloAck(user.getIp());
-		}
+		//}
 	}
 	
 	public void receiveMessage(String message, InetAddress ip){
 		System.out.println("Reception : " +message);
+		chatGUI.displayMessage(message, userlist.getUserList().get(ip.hashCode()));
+		
 	}
 	
 	public void processHelloAck(String nickname, InetAddress ip){

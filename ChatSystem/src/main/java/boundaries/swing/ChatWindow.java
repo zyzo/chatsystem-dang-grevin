@@ -83,5 +83,9 @@ public class ChatWindow extends JFrame implements ActionListener {
         }
     }
     
+    public void appendMessage(String message){
+    	textArea.append(message+"\n"+"\r");
+    }
+    
 
 }

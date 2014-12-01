@@ -23,6 +23,11 @@ public class UserList extends Observable{
 		notifyAllObservers();
 	}
 	
+	public void remove(User user){
+		this.lastChange = user;
+		userList.remove(user.getIp().hashCode());
+	}
+	
 	public Map<Integer, User> getUserList() {
 		return userList;
 	}
@@ -36,6 +41,11 @@ public class UserList extends Observable{
 	public User getLastChange() {
 		return lastChange;
 	}
+	
+	public Collection<User> getUserListCollection(){
+		return userList.values();
+	}
+
 
 
 

@@ -1,5 +1,6 @@
 package boundaries.swing;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +51,12 @@ public class ChatGUI{
 	}
 	
 	public void displayMessage(String message, User user){
-		
+		try{
+			chatWindows.get(user).appendMessage(user.getName()+" : " +message);
+		}catch (java.lang.NullPointerException e){
+			chatWindows.put(user, new ChatWindow(user));
+			chatWindows.get(user).appendMessage(user.getName()+" : " +message);
+		}
 	}
 	
 	public void setChatController(ChatController chatController) {
@@ -62,8 +68,9 @@ public class ChatGUI{
 	}
 	
 	
-	public void addUser(User user){
-		this.ulwb.addUser(user);
+	public void updateList(Collection<User> userlist){
+		ulwb.updateList(userlist);
 	}
+	
 
 }

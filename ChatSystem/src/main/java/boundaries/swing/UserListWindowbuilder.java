@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Collection;
 
 import javax.swing.SwingConstants;
 
@@ -53,6 +54,15 @@ public class UserListWindowbuilder extends JFrame implements MouseListener{
 		dlm.addElement(user);
 		this.pack();
 		}
+	
+	public void updateList(Collection<User> userlist){
+		dlm.removeAllElements();
+		for(User user: userlist){
+			dlm.addElement(user);;
+		}
+		
+		this.pack();
+	}
 	
 
 	@Override

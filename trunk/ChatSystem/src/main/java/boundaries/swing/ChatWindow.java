@@ -68,8 +68,8 @@ public class ChatWindow extends JFrame implements ActionListener {
             }
         });
         this.setTitle(this.remoteUser.getName());
-        this.setSize(400,400);
-        this.pack();
+        this.setSize(458,313);
+        //this.pack();
         this.setVisible(true);
     }
 

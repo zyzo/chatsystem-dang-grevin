@@ -79,8 +79,7 @@ public class ChatController {
 	}
 	
 	public void processGoodbye(String nickname,InetAddress ip){
-		User user = new User(nickname, ip);
-		userlist.getUserList().remove(ip.hashCode());
+		userlist.remove(userlist.getUserList().get(ip.hashCode()));
 	}
 
 

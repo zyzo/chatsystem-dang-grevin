@@ -26,6 +26,7 @@ public class UserList extends Observable{
 	public void remove(User user){
 		this.lastChange = user;
 		userList.remove(user.getIp().hashCode());
+		notifyAllObservers();
 	}
 	
 	public Map<Integer, User> getUserList() {

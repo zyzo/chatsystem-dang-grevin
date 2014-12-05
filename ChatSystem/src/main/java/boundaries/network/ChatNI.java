@@ -23,6 +23,7 @@ public class ChatNI {
     private ChatNI() {
     	try {
     		tcpServer = new TCPServer(1337);
+    		tcpServer.start();
 			DatagramSocket udpsocket = new DatagramSocket(1337);
 			System.out.println("Socket créé");
 			udpSender = new UDPSender(udpsocket,1337);

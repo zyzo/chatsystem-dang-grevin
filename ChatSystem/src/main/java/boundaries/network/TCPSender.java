@@ -39,6 +39,7 @@ public class TCPSender extends Thread {
     	FileInputStream fis = null;
 
 		try {
+			System.out.println("DébutSendFile");
 			File fichier = new File(filePath);
 	    	byte[] bytefichier = new byte[(int) fichier.length()];
 			fis = new FileInputStream(fichier);

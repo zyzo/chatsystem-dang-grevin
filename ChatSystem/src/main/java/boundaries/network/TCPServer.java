@@ -24,6 +24,7 @@ public class TCPServer extends Thread {
     	while(true){
     		try {
 				TCPReceiver tcpr = new TCPReceiver(this.server.accept());
+				System.out.println("Accept OK");
 				tcpr.start();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

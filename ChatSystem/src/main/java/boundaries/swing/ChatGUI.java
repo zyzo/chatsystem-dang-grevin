@@ -88,6 +88,13 @@ public class ChatGUI{
 		chatWindows.get(user).appendMessage("File " + fileName + " received");
 		
 	}
+
+	public void processGoodBye(User user) {
+		ChatWindow window;
+		if ((window = chatWindows.get(user)) != null) {
+			chatWindows.get(user).disableWindow();
+		}
+	}
 	
 
 }

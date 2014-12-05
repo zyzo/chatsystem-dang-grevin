@@ -34,6 +34,10 @@ public class ChatWindow extends JFrame {
 	private JTextArea txtrConversation;
 	private JTextArea txtrInputText;
 	private JFileChooser fileChooser;
+
+	private JButton btnIncludeImage;
+
+	private JButton btnSend;
     
 	/**
 	 * Launch the application.
@@ -94,7 +98,7 @@ public class ChatWindow extends JFrame {
 		panelInput.add(txtrInputText);
 		txtrInputText.setLineWrap(true);
 		
-		JButton btnSend = new JButton("Send");
+		btnSend = new JButton("Send");
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -117,7 +121,7 @@ public class ChatWindow extends JFrame {
 	
 		
 		
-		JButton btnIncludeImage = new JButton("Send File");
+		btnIncludeImage = new JButton("Send File");
 		btnIncludeImage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -162,4 +166,18 @@ public class ChatWindow extends JFrame {
 	  public void appendMessage(String message){
 	    	txtrConversation.append(message+"\n"+"\r");
 	    }
+
+	public void disableWindow() {
+		appendMessage(mRemoteUser.getName() + "is disconnected");
+		txtrInputText.setEnabled(false);
+		btnIncludeImage.setEnabled(false);
+		btnSend.setEnabled(true);
+	}
+	
+	public void enableWindow() {
+		appendMessage(mRemoteUser.getName() + "reconnects");
+		txtrInputText.setEnabled(true);
+		btnIncludeImage.setEnabled(true);
+		btnSend.setEnabled(true);
+	}
 }

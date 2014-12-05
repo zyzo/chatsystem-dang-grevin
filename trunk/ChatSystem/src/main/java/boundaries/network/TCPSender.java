@@ -54,11 +54,17 @@ public class TCPSender extends Thread {
             dos.write(bytefichier, 0, bytefichier.length);
             dos.flush();
             
-            os.write(bytefichier, 0, bytefichier.length);
-            os.flush();
+           // os.write(bytefichier, 0, bytefichier.length);
+            //os.flush();
             //Closing socket
-            os.close();
+           // os.close();
             dos.close();
+            try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             socket.close();
             dis.close();
             

@@ -80,6 +80,7 @@ public class ChatController {
 	
 	public void processGoodbye(String nickname,InetAddress ip){
 		userlist.remove(userlist.getUserList().get(ip.hashCode()));
+		chatGUI.processGoodBye(userlist.getUserList().get(ip.hashCode()));
 	}
 	
 	public void performSendFile(String filepath, User user){

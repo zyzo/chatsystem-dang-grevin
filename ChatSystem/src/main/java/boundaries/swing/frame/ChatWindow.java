@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -14,16 +16,28 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.JLabel;
+
 import java.awt.Dimension;
+
 import javax.swing.UIManager;
+
+import model.User;
+import boundaries.swing.ChatGUI;
 
 public class ChatWindow extends JFrame {
 
 	private JPanel contentPane;
 
+	private static final long serialVersionUID = 1L;
+	private ChatGUI chatGUI;
+    private User remoteUser;
+
+	private JTextArea txtrConversation;
+    
 	/**
 	 * Launch the application.
 	 */
@@ -31,7 +45,7 @@ public class ChatWindow extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ChatWindow frame = new ChatWindow();
+					ChatWindow frame = new ChatWindow(ChatGUI.getInstance(), new User("it's Me"));
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,8 +57,15 @@ public class ChatWindow extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ChatWindow() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public ChatWindow(ChatGUI chatGUI, User remoteUser) {
+		this.chatGUI = chatGUI;
+		this.remoteUser = remoteUser;
+		addWindowFocusListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                System.out.println("Fermeture ChatWindow");
+            }
+        });
 		setBounds(100, 100, 508, 351);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -57,11 +78,24 @@ public class ChatWindow extends JFrame {
 		contentPane.add(panelConversation);
 		panelConversation.setLayout(null);
 		
-		JTextArea txtrConversation = new JTextArea();
+		txtrConversation = new JTextArea();
 		txtrConversation.setBounds(3, 3, 478, 190);
 		panelConversation.add(txtrConversation);
 		txtrConversation.setFont(new Font("Arial", Font.PLAIN, 12));
-		txtrConversation.setText("sad");
+		txtrConversation.setEditable(false);
+		
+		JPanel panelInput = new JPanel();
+		panelInput.setBorder(new LineBorder(new Color(100, 149, 237), 3, true));
+		panelInput.setBounds(12, 251, 329, 55);
+		contentPane.add(panelInput);
+		panelInput.setLayout(null);
+
+		JTextArea txtrInputText = new JTextArea();
+		txtrInputText.setFont(new Font("Arial", Font.PLAIN, 12));
+		txtrInputText.setBounds(3, 3, 323, 49);
+		panelInput.add(txtrInputText);
+		txtrInputText.setLineWrap(true);
+		txtrInputText.setText("input text");
 		
 		JButton btnSend = new JButton("Send");
 		btnSend.addActionListener(new ActionListener() {
@@ -71,7 +105,9 @@ public class ChatWindow extends JFrame {
 		btnSend.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("Clicking Send");
+	            System.out.println("Sending Stuff..");
+	            txtrConversation.append("Moi : "+ txtrInputText.getText()+"\n"+"\r");
+	            chatGUI.performSendMessage(txtrInputText.getText(), remoteUser);
 			}
 		});
 		btnSend.setBackground(UIManager.getColor("Button.darkShadow"));
@@ -80,20 +116,10 @@ public class ChatWindow extends JFrame {
 		btnSend.setBounds(363, 251, 117, 55);
 		contentPane.add(btnSend);
 		
-		JPanel panelInput = new JPanel();
-		panelInput.setBorder(new LineBorder(new Color(100, 149, 237), 3, true));
-		panelInput.setBounds(12, 251, 329, 55);
-		contentPane.add(panelInput);
-		panelInput.setLayout(null);
+	
 		
-		JTextArea txtrInputText = new JTextArea();
-		txtrInputText.setFont(new Font("Arial", Font.PLAIN, 12));
-		txtrInputText.setBounds(3, 3, 323, 49);
-		panelInput.add(txtrInputText);
-		txtrInputText.setLineWrap(true);
-		txtrInputText.setText("input text");
 		
-		JButton btnIncludeImage = new JButton("Include Image");
+		JButton btnIncludeImage = new JButton("Send File");
 		btnIncludeImage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -120,4 +146,8 @@ public class ChatWindow extends JFrame {
 		contentPane.add(btnAddParticipant);
 		
 	}
+	
+	  public void appendMessage(String message){
+	    	txtrConversation.append(message+"\n"+"\r");
+	    }
 }

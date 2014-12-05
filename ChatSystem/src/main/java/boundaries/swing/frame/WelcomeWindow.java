@@ -1,50 +1,34 @@
 package boundaries.swing.frame;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.CardLayout;
-import javax.swing.JTextField;
-import java.awt.Window.Type;
-import java.awt.FlowLayout;
-import javax.swing.JLabel;
-import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.Font;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
-import java.awt.Color;
-import java.awt.SystemColor;
+import javax.swing.border.EmptyBorder;
+
+import boundaries.swing.ChatGUI;
 
 public class WelcomeWindow extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JLabel lblYourNickname;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					WelcomeWindow frame = new WelcomeWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private ChatGUI chatGUI;
 
 	/**
 	 * Create the frame.
 	 */
-	public WelcomeWindow() {
+	public WelcomeWindow(ChatGUI chatGUI) {
+		this.chatGUI = chatGUI;
 		setBackground(UIManager.getColor("InternalFrame.activeTitleBackground"));
 		setFont(new Font("Andale Mono", Font.BOLD, 17));
 		setTitle("ChatSystem");
@@ -83,7 +67,8 @@ public class WelcomeWindow extends JFrame {
 		btnLetsChat.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("Mouse clicked on Let's chat");
+				System.out.println("Your nickname " + textField.getText());
+				chatGUI.performHello(textField.getText());
 			}
 		});
 		btnLetsChat.setBounds(190, 100, 117, 25);

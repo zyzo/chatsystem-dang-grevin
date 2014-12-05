@@ -100,6 +100,7 @@ public class ChatController {
 	}
 		
     public static void main(String[] args) {
-    	ChatController.getInstance();    
-    	}
+    	ChatController.getInstance(); 
+    	ChatGUI.getInstance().promptForUsername();
+    }
 }

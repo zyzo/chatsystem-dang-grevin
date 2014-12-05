@@ -52,6 +52,7 @@ public class ChatGUI{
 	
 	public void displayMessage(String message, User user){
 		try{
+			chatWindows.get(user).setVisible(true);
 			chatWindows.get(user).appendMessage(user.getName()+" : " +message);
 		}catch (java.lang.NullPointerException e){
 			chatWindows.put(user, new ChatWindow(user));

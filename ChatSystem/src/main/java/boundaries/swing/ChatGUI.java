@@ -79,6 +79,14 @@ public class ChatGUI{
 		chatController.performSendFile(filePath, dstUser);
 		
 	}
+
+	public void notifyFileReceived(User user, String fileName) {
+		chatWindows.get(user).appendMessage("You received a file from " + user.getName() + " : " + fileName);
+	}
+
+	public void notifyFileSent(User user, String fileName) {
+		chatWindows.get(user).appendMessage("You sended a file to " + user.getName() + " : " + fileName);
+	}
 	
 
 }

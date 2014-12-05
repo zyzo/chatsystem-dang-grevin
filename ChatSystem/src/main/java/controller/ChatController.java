@@ -1,7 +1,10 @@
 package controller;
 
+import java.io.File;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import observer.ObserverUserList;
 import boundaries.network.ChatNI;
@@ -28,10 +31,6 @@ public class ChatController {
 		ObserverUserList observeruserlist = new ObserverUserList(userlist);
 	}
 	
-	
-
-
-    
     public static ChatController getInstance() {
         if (instance == null)
             instance = new ChatController();
@@ -109,4 +108,13 @@ public class ChatController {
     	ChatController.getInstance(); 
     	ChatGUI.getInstance().promptForUsername();
     }
+
+	public void notifyFileSent(InetAddress inetAddress, String fileName) {
+		chatGUI.notifyFileSent(userlist.getUserList().get(inetAddress.hashCode()), fileName);
+		
+	}
+
+	public void notifyFileReceived(InetAddress inetAddress, String fileName) {
+		chatGUI.notifyFileReceived(userlist.getUserList().get(inetAddress.hashCode()), fileName);
+	}
 }

@@ -39,7 +39,7 @@ public class TCPSender extends Thread {
     	FileInputStream fis = null;
 
 		try {
-			System.out.println("DébutSendFile");
+			System.out.println("DÃ©butSendFile");
 			File fichier = new File(filePath);
 	    	byte[] bytefichier = new byte[(int) fichier.length()];
 			fis = new FileInputStream(fichier);
@@ -67,7 +67,8 @@ public class TCPSender extends Thread {
 			}
             socket.close();
             dis.close();
-            
+            ChatNI.getInstance().notifyFileSent(socket.getInetAddress(), fichier.getName());
+            System.out.println("FinSendFile");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

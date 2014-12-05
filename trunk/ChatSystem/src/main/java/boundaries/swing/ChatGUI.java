@@ -1,5 +1,6 @@
 package boundaries.swing;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,6 +73,11 @@ public class ChatGUI{
 	
 	public void updateList(Collection<User> userlist){
 		userListWindow.updateList(userlist);
+	}
+
+	public void performSendFile(String filePath, User dstUser) {
+		chatController.performSendFile(filePath, dstUser);
+		
 	}
 	
 

@@ -1,6 +1,7 @@
 package boundaries.swing.frame;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -13,6 +14,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -38,6 +40,7 @@ public class ChatWindow extends JFrame {
 
 	private JTextArea txtrConversation;
 	private JTextArea txtrInputText;
+	private JFileChooser fileChooser;
     
 	/**
 	 * Launch the application.
@@ -125,6 +128,15 @@ public class ChatWindow extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("Clicking Include Image");
+				int returnVal = fileChooser.showOpenDialog((Component) e.getSource());
+			    if(returnVal == JFileChooser.APPROVE_OPTION) {
+			       System.out.println("You chose to open this file: " +
+			            fileChooser.getSelectedFile().getName());
+			       mChatGUI.performSendFile(fileChooser.getSelectedFile().getAbsolutePath(), mRemoteUser);
+			    } else if (returnVal == JFileChooser.CANCEL_OPTION) {
+			    	System.out.println("Close file chooser window");
+			    	fileChooser.cancelSelection();
+			    }
 			}
 		});
 		btnIncludeImage.setForeground(UIManager.getColor("Button.foreground"));
@@ -146,6 +158,8 @@ public class ChatWindow extends JFrame {
 		btnAddParticipant.setBounds(12, 220, 160, 25);
 		//contentPane.add(btnAddParticipant);
 		
+		fileChooser = new JFileChooser();
+		fileChooser.setBounds(0, -44, 517, 326);
 	}
 	
 	  public void appendMessage(String message){

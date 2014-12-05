@@ -13,7 +13,7 @@ import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class TCPSender {
+public class TCPSender extends Thread {
 	private final String filePath;
     private final InetAddress remoteIp;
     private Socket socket;
@@ -36,8 +36,6 @@ public class TCPSender {
     }
     
     public  void run(){
-    	
-    	
     	FileInputStream fis = null;
 
 		try {

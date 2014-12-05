@@ -1,38 +1,41 @@
 package boundaries.swing.frame;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.UIManager;
-import javax.swing.JDesktopPane;
-import javax.swing.JLabel;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
 import java.awt.Color;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.JList;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.AbstractListModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Collection;
+
+import javax.swing.AbstractListModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.MatteBorder;
+
+import boundaries.swing.ChatGUI;
+import model.User;
 
 public class UserListWindow extends JFrame {
 
 	private JPanel contentPane;
+	private DefaultListModel<User> dlm= new DefaultListModel<User>();
+	private ChatGUI chatGUI;
 
 	/**
-	 * Launch the application.
+	 * Create the frame.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UserListWindow frame = new UserListWindow();
+					UserListWindow frame = new UserListWindow(ChatGUI.getInstance());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,11 +43,9 @@ public class UserListWindow extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
-	public UserListWindow() {
+	
+	public UserListWindow(ChatGUI chatGUI) {
+		this.chatGUI = chatGUI;
 		setTitle("ChatSystem");
 		setBackground(UIManager.getColor("InternalFrame.activeTitleBackground"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,24 +74,19 @@ public class UserListWindow extends JFrame {
 		contentPane.add(userList);
 		userList.setLayout(null);
 		
-		JList list = new JList();
+		JList<User> list = new JList<User>(dlm);
 		list.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("Clicking on list");
+				// TODO Auto-generated method stub
+				if(e.getClickCount()==2){
+					System.out.println("CREATION CHATWINDOW with " + list.getSelectedValue().getName());
+					chatGUI.createChatWindow(list.getSelectedValue());
+				}
 			}
 		});
 		list.setBorder(UIManager.getBorder("List.focusCellHighlightBorder"));
 		list.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"Mummy", "Frankenstein", "Dracular", "Arthur"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
 		list.setBounds(0, 0, 362, 469);
 		userList.add(list);
 		
@@ -104,4 +100,13 @@ public class UserListWindow extends JFrame {
 		lblAllRightsNot_1.setBounds(25, 492, 230, 15);
 		userList.add(lblAllRightsNot_1);
 	}
+	
+	public void updateList(Collection<User> userlist){
+		dlm.removeAllElements();
+		for(User user: userlist){
+			dlm.addElement(user);;
+		}
+		
+	}
+	
 }

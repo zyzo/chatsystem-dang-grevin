@@ -1,13 +1,10 @@
 package boundaries.network;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
 import java.io.DataInputStream;
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 
@@ -26,7 +23,9 @@ public class TCPReceiver extends Thread {
 			in = socket.getInputStream();
 			DataInputStream data = new DataInputStream(in);
 			String filename = data.readUTF();
-			OutputStream output = new FileOutputStream(filename);
+			String path = (new File ("")).getAbsolutePath();
+			System.out.println(path);
+			OutputStream output = new FileOutputStream(path+"/"+filename);
 			long size = data.readLong();       
 	        byte[] buffer = new byte[1024];       
 	        while (size > 0 && (bytesRead = data.read(buffer, 0, (int)Math.min(buffer.length, size))) != -1)       
@@ -39,7 +38,7 @@ public class TCPReceiver extends Thread {
 	        in.close();  
 	        data.close();  
 	        output.close(); 
-	        System.out.println("FILE RECEIVE");
+	        System.out.println("FILE RECEIVE ");
 	        ChatNI.getInstance().notifyFileReceived(socket.getInetAddress(), filename);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

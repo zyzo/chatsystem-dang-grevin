@@ -81,6 +81,10 @@ public class ChatController {
 	public void processGoodbye(String nickname,InetAddress ip){
 		userlist.remove(userlist.getUserList().get(ip.hashCode()));
 	}
+	
+	public void performSendFile(String filepath, User user){
+		chatNI.sendFile(filepath, user.getIp());
+	}
 
 
 
@@ -98,6 +102,7 @@ public class ChatController {
 		}
 		
 	}
+	
 		
     public static void main(String[] args) {
     	ChatController.getInstance(); 

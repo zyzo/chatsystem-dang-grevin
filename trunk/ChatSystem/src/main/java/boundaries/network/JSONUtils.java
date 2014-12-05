@@ -51,7 +51,7 @@ public class JSONUtils {
 		try {
 			obj.put(MessageConstants.ATT_TYPE, MessageConstants.TYPE_MESSAGE);
 			obj.put(MessageConstants.ATT_MESSAGE_DATA, message);
-			obj.put(MessageConstants.ATT_MESSAGE_NUMBER, "1");
+			obj.put(MessageConstants.ATT_MESSAGE_NUMBER, 1);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,7 +63,7 @@ public class JSONUtils {
 	public static JSONObject constructMessageAck(int seq){
 		JSONObject obj = new JSONObject();
 		try {
-			obj.put(MessageConstants.ATT_TYPE, MessageConstants.ATT_MESSAGE_NUMBER);
+			obj.put(MessageConstants.ATT_TYPE, MessageConstants.TYPE_MESSAGE_ACK);
 			obj.put(MessageConstants.ATT_MESSAGE_NUMBER, seq);
 
 		} catch (JSONException e) {

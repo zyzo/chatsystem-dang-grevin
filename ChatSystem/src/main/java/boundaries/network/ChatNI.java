@@ -67,7 +67,9 @@ public class ChatNI {
     	udpSender.send(msg,ip);
     }
     
-    public void sendMessageAck(InetAddress ip){
+    public void sendMessageAck(InetAddress ip, int seq){
+    	byte[] msg = JSONUtils.constructMessageAck(seq).toString().getBytes();
+    	udpSender.send(msg, ip);
     }
     
     public void sendFile(String filePath, InetAddress ip){
@@ -104,7 +106,7 @@ public class ChatNI {
 			}
 			else if(obj.get("type").equals(MessageConstants.TYPE_MESSAGE)){
 				System.out.println("Message Receive "+ obj.get(MessageConstants.ATT_MESSAGE_DATA).toString());
-				chatControler.receiveMessage(obj.get(MessageConstants.ATT_MESSAGE_DATA).toString(), ip);
+				chatControler.receiveMessage(obj.get(MessageConstants.ATT_MESSAGE_DATA).toString(), ip, (int) obj.get(MessageConstants.ATT_MESSAGE_NUMBER));
 			}
 				
 		

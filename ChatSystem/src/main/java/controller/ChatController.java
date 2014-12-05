@@ -63,8 +63,9 @@ public class ChatController {
 		//}
 	}
 	
-	public void receiveMessage(String message, InetAddress ip){
+	public void receiveMessage(String message, InetAddress ip,  int seq){
 		System.out.println("Reception : " +message);
+		chatNI.sendMessageAck(ip,seq);
 		chatGUI.displayMessage(message, userlist.getUserList().get(ip.hashCode()));
 		
 	}

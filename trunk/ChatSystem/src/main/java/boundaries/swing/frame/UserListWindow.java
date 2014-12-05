@@ -36,7 +36,7 @@ public class UserListWindow extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UserListWindow frame = new UserListWindow(ChatGUI.getInstance());
+					UserListWindow frame = new UserListWindow(ChatGUI.getInstance(), "hoho");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class UserListWindow extends JFrame {
 		});
 	}
 	
-	public UserListWindow(ChatGUI chatGUI) {
+	public UserListWindow(ChatGUI chatGUI, String username) {
 		this.mChatGUI = chatGUI;
 		setTitle("ChatSystem");
 		setBackground(UIManager.getColor("InternalFrame.activeTitleBackground"));
@@ -63,7 +63,7 @@ public class UserListWindow extends JFrame {
 		contentPane.add(userInfo);
 		userInfo.setLayout(null);
 		
-		JLabel lblWel = new JLabel("Welcome back, $NAME$");
+		JLabel lblWel = new JLabel("Welcome back, " + username);
 		lblWel.setFont(new Font("Arial", Font.BOLD, 14));
 		lblWel.setBackground(UIManager.getColor("EditorPane.inactiveForeground"));
 		lblWel.setBounds(12, 30, 194, 15);

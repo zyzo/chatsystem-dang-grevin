@@ -40,10 +40,9 @@ public class ChatGUI{
     }
     
 	public void performHello(String username) {
-		//System.out.println(welcome.getTextNickname().getText());
 		welcomeWindow.setVisible(false);
-		userListWindow = new UserListWindow(this);
-		userListWindow.setVisible(true); 
+		userListWindow = new UserListWindow(this, username);
+		userListWindow.setVisible(true);
 		chatController.performHello(username);
 
 	}

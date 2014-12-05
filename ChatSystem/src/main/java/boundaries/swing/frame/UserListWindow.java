@@ -26,7 +26,8 @@ public class UserListWindow extends JFrame {
 
 	private JPanel contentPane;
 	private DefaultListModel<User> dlm= new DefaultListModel<User>();
-	private ChatGUI chatGUI;
+	private ChatGUI mChatGUI;
+	private JList<User> list;
 
 	/**
 	 * Create the frame.
@@ -45,7 +46,7 @@ public class UserListWindow extends JFrame {
 	}
 	
 	public UserListWindow(ChatGUI chatGUI) {
-		this.chatGUI = chatGUI;
+		this.mChatGUI = chatGUI;
 		setTitle("ChatSystem");
 		setBackground(UIManager.getColor("InternalFrame.activeTitleBackground"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,14 +75,14 @@ public class UserListWindow extends JFrame {
 		contentPane.add(userList);
 		userList.setLayout(null);
 		
-		JList<User> list = new JList<User>(dlm);
+		list = new JList<User>(dlm);
 		list.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				if(e.getClickCount()==2){
 					System.out.println("CREATION CHATWINDOW with " + list.getSelectedValue().getName());
-					chatGUI.createChatWindow(list.getSelectedValue());
+					mChatGUI.createChatWindow(list.getSelectedValue());
 				}
 			}
 		});

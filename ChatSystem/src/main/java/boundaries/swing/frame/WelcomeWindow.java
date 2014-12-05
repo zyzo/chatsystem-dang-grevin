@@ -22,13 +22,13 @@ public class WelcomeWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JLabel lblYourNickname;
-	private ChatGUI chatGUI;
+	private ChatGUI mChatGUI;
 
 	/**
 	 * Create the frame.
 	 */
 	public WelcomeWindow(ChatGUI chatGUI) {
-		this.chatGUI = chatGUI;
+		this.mChatGUI = chatGUI;
 		setBackground(UIManager.getColor("InternalFrame.activeTitleBackground"));
 		setFont(new Font("Andale Mono", Font.BOLD, 17));
 		setTitle("ChatSystem");
@@ -68,7 +68,7 @@ public class WelcomeWindow extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("Your nickname " + textField.getText());
-				chatGUI.performHello(textField.getText());
+				mChatGUI.performHello(textField.getText());
 			}
 		});
 		btnLetsChat.setBounds(190, 100, 117, 25);

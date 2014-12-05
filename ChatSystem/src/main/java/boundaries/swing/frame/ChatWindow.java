@@ -33,10 +33,11 @@ public class ChatWindow extends JFrame {
 	private JPanel contentPane;
 
 	private static final long serialVersionUID = 1L;
-	private ChatGUI chatGUI;
-    private User remoteUser;
+	private ChatGUI mChatGUI;
+    private User mRemoteUser;
 
 	private JTextArea txtrConversation;
+	private JTextArea txtrInputText;
     
 	/**
 	 * Launch the application.
@@ -58,8 +59,8 @@ public class ChatWindow extends JFrame {
 	 * Create the frame.
 	 */
 	public ChatWindow(ChatGUI chatGUI, User remoteUser) {
-		this.chatGUI = chatGUI;
-		this.remoteUser = remoteUser;
+		this.mChatGUI = chatGUI;
+		this.mRemoteUser = remoteUser;
 		addWindowFocusListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
@@ -90,7 +91,7 @@ public class ChatWindow extends JFrame {
 		contentPane.add(panelInput);
 		panelInput.setLayout(null);
 
-		JTextArea txtrInputText = new JTextArea();
+		txtrInputText = new JTextArea();
 		txtrInputText.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtrInputText.setBounds(3, 3, 323, 49);
 		panelInput.add(txtrInputText);
@@ -107,7 +108,7 @@ public class ChatWindow extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 	            System.out.println("Sending Stuff..");
 	            txtrConversation.append("Moi : "+ txtrInputText.getText()+"\n"+"\r");
-	            chatGUI.performSendMessage(txtrInputText.getText(), remoteUser);
+	            mChatGUI.performSendMessage(txtrInputText.getText(), mRemoteUser);
 			}
 		});
 		btnSend.setBackground(UIManager.getColor("Button.darkShadow"));

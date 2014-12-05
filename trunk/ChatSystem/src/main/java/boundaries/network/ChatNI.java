@@ -22,6 +22,7 @@ public class ChatNI {
 
     private ChatNI() {
     	try {
+    		tcpServer = new TCPServer(1337);
 			DatagramSocket udpsocket = new DatagramSocket(1337);
 			System.out.println("Socket créé");
 			udpSender = new UDPSender(udpsocket,1337);
@@ -69,6 +70,9 @@ public class ChatNI {
     public void sendMessageAck(InetAddress ip){
     }
     
+    public void sendFile(String filePath, InetAddress ip){
+    	TCPSender tcps = new TCPSender(filePath, ip, 1337);
+    }
     
 
     private static ChatNI instance;

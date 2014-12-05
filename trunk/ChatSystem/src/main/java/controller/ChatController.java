@@ -109,12 +109,12 @@ public class ChatController {
     	ChatGUI.getInstance().promptForUsername();
     }
 
-	public void notifyFileSent(InetAddress inetAddress, String fileName) {
-		chatGUI.notifyFileSent(userlist.getUserList().get(inetAddress.hashCode()), fileName);
-		
-	}
-
 	public void notifyFileReceived(InetAddress inetAddress, String fileName) {
 		chatGUI.notifyFileReceived(userlist.getUserList().get(inetAddress.hashCode()), fileName);
+	}
+
+	public void notifyFileReceiving(InetAddress inetAddress, String fileName) {
+		chatGUI.notifyFileReceiving(userlist.getUserList().get(inetAddress.hashCode()), fileName);
+		
 	}
 }

@@ -124,9 +124,12 @@ public class ChatWindow extends JFrame {
 				System.out.println("Clicking Include Image");
 				int returnVal = fileChooser.showOpenDialog((Component) e.getSource());
 			    if(returnVal == JFileChooser.APPROVE_OPTION) {
+			       String fileName = fileChooser.getSelectedFile().getName();
 			       System.out.println("You chose to open this file: " +
-			            fileChooser.getSelectedFile().getName());
+			            fileName);
+			       appendMessage("You are sending " + fileName + " to " + mRemoteUser.getName());
 			       mChatGUI.performSendFile(fileChooser.getSelectedFile().getAbsolutePath(), mRemoteUser);
+			       appendMessage("File " +  fileName + " is sent");
 			    } else if (returnVal == JFileChooser.CANCEL_OPTION) {
 			    	System.out.println("Close file chooser window");
 			    	fileChooser.cancelSelection();

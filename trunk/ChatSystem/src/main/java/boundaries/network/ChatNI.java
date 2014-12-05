@@ -119,17 +119,17 @@ public class ChatNI {
 		}
 	}
 	
-	public void notifyFileSent(InetAddress inetAddress, String fileName) {
-		chatControler.notifyFileSent(inetAddress, fileName);
-	}
-	
 	public void notifyFileReceived(InetAddress inetAddress, String fileName) {
 		chatControler.notifyFileReceived(inetAddress, fileName);
 	}
 
+	public void notifyFileReceiving(InetAddress inetAddress, String filename) {
+		chatControler.notifyFileReceiving(inetAddress, filename);
+	}
 
 	public void setChatControler(ChatController chatControler) {
 		this.chatControler = chatControler;
 	}
+
 	
 }

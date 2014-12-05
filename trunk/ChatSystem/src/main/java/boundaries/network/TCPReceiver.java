@@ -28,6 +28,7 @@ public class TCPReceiver extends Thread {
 			OutputStream output = new FileOutputStream(path+"/"+filename);
 			long size = data.readLong();       
 	        byte[] buffer = new byte[1024];       
+	        ChatNI.getInstance().notifyFileReceiving(socket.getInetAddress(), filename);
 	        while (size > 0 && (bytesRead = data.read(buffer, 0, (int)Math.min(buffer.length, size))) != -1)       
 	        {       
 	            output.write(buffer, 0, bytesRead);       
@@ -38,7 +39,7 @@ public class TCPReceiver extends Thread {
 	        in.close();  
 	        data.close();  
 	        output.close(); 
-	        System.out.println("FILE RECEIVE ");
+	        System.out.println("FILE RECEIVED");
 	        ChatNI.getInstance().notifyFileReceived(socket.getInetAddress(), filename);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

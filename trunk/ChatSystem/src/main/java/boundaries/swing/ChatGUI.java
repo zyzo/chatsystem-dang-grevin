@@ -80,12 +80,13 @@ public class ChatGUI{
 		
 	}
 
-	public void notifyFileReceived(User user, String fileName) {
-		chatWindows.get(user).appendMessage("You received a file from " + user.getName() + " : " + fileName);
+	public void notifyFileReceiving(User user, String fileName) {
+		chatWindows.get(user).appendMessage(user.getName() + " is sending you a file : " + fileName);
 	}
 
-	public void notifyFileSent(User user, String fileName) {
-		chatWindows.get(user).appendMessage("You sended a file to " + user.getName() + " : " + fileName);
+	public void notifyFileReceived(User user, String fileName) {
+		chatWindows.get(user).appendMessage("File " + fileName + " received");
+		
 	}
 	
 

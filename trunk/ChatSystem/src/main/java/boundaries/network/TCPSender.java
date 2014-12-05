@@ -67,7 +67,6 @@ public class TCPSender extends Thread {
 			}
             socket.close();
             dis.close();
-            ChatNI.getInstance().notifyFileSent(socket.getInetAddress(), fichier.getName());
             System.out.println("FinSendFile");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

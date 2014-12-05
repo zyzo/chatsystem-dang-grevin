@@ -11,21 +11,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.JLabel;
-
-import java.awt.Dimension;
-
-import javax.swing.UIManager;
 
 import model.User;
 import boundaries.swing.ChatGUI;
@@ -112,6 +105,7 @@ public class ChatWindow extends JFrame {
 	            System.out.println("Sending Stuff..");
 	            txtrConversation.append("Moi : "+ txtrInputText.getText()+"\n"+"\r");
 	            mChatGUI.performSendMessage(txtrInputText.getText(), mRemoteUser);
+	            txtrInputText.setText("");
 			}
 		});
 		btnSend.setBackground(UIManager.getColor("Button.darkShadow"));

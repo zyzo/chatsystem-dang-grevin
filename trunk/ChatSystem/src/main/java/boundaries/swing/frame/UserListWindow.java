@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Collection;
 
 import javax.swing.AbstractListModel;
@@ -49,7 +51,14 @@ public class UserListWindow extends JFrame {
 		this.mChatGUI = chatGUI;
 		setTitle("ChatSystem");
 		setBackground(UIManager.getColor("InternalFrame.activeTitleBackground"));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				mChatGUI.performGoodBye();
+				System.out.println("I quit.");
+				System.exit(0);
+			}
+		});
 		setBounds(100, 100, 362, 647);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

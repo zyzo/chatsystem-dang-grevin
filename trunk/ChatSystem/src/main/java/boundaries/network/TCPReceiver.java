@@ -40,6 +40,7 @@ public class TCPReceiver extends Thread {
 	        data.close();  
 	        output.close(); 
 	        System.out.println("FILE RECEIVE");
+	        ChatNI.getInstance().notifyFileReceived(socket.getInetAddress(), filename);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

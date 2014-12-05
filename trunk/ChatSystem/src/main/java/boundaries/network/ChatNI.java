@@ -6,6 +6,8 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.List;
 
+import model.User;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -88,7 +90,6 @@ public class ChatNI {
     }
     
 
-
 	public void receiveMessage(byte[] data, InetAddress ip) {
 		JSONObject obj = JSONUtils.byteToJson(data);
 		try {
@@ -107,7 +108,7 @@ public class ChatNI {
 			}
 			else if(obj.get("type").equals(MessageConstants.TYPE_MESSAGE)){
 				System.out.println("Message Receive "+ obj.get(MessageConstants.ATT_MESSAGE_DATA).toString());
-				chatControler.receiveMessage(obj.get(MessageConstants.ATT_MESSAGE_DATA).toString(), ip, (int) obj.get(MessageConstants.ATT_MESSAGE_NUMBER));
+				chatControler.receiveMessage(obj.get(MessageConstants.ATT_MESSAGE_DATA).toString(), ip, (Integer) obj.get(MessageConstants.ATT_MESSAGE_NUMBER));
 			}
 				
 		
@@ -116,14 +117,19 @@ public class ChatNI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		  
-		
-				
 	}
+	
+	public void notifyFileSent(InetAddress inetAddress, String fileName) {
+		chatControler.notifyFileSent(inetAddress, fileName);
+	}
+	
+	public void notifyFileReceived(InetAddress inetAddress, String fileName) {
+		chatControler.notifyFileReceived(inetAddress, fileName);
+	}
+
 
 	public void setChatControler(ChatController chatControler) {
 		this.chatControler = chatControler;
 	}
 	
-
 }

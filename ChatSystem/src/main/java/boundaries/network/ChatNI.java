@@ -72,6 +72,7 @@ public class ChatNI {
     
     public void sendFile(String filePath, InetAddress ip){
     	TCPSender tcps = new TCPSender(filePath, ip, 1337);
+    	tcps.start();
     }
     
 

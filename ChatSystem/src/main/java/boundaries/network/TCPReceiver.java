@@ -16,6 +16,7 @@ public class TCPReceiver extends Thread {
     private final Socket socket;
     int bytesRead ; 
 	public TCPReceiver(Socket socket){
+		System.out.println("Received file");
 		this.socket =socket;
 	}
 	@Override

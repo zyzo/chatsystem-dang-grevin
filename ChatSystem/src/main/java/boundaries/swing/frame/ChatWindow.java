@@ -67,6 +67,7 @@ public class ChatWindow extends JFrame {
                 System.out.println("Fermeture ChatWindow");
             }
         });
+		setTitle(remoteUser.getName());
 		setBounds(100, 100, 508, 351);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -96,7 +97,6 @@ public class ChatWindow extends JFrame {
 		txtrInputText.setBounds(3, 3, 323, 49);
 		panelInput.add(txtrInputText);
 		txtrInputText.setLineWrap(true);
-		txtrInputText.setText("input text");
 		
 		JButton btnSend = new JButton("Send");
 		btnSend.addActionListener(new ActionListener() {
@@ -144,7 +144,7 @@ public class ChatWindow extends JFrame {
 		btnAddParticipant.setBackground(UIManager.getColor("Button.darkShadow"));
 		btnAddParticipant.setFont(new Font("Arial", Font.BOLD, 12));
 		btnAddParticipant.setBounds(12, 220, 160, 25);
-		contentPane.add(btnAddParticipant);
+		//contentPane.add(btnAddParticipant);
 		
 	}
 	

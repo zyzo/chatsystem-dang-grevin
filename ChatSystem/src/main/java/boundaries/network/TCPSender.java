@@ -13,6 +13,8 @@ import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 /**
+ * Use to Send File
+ * Extends Thread in order to send File and Use THe ChatSystem at the same time.
  * 
  * @author Arthur & Hai An
  *

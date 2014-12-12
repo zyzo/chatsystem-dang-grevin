@@ -8,7 +8,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 /**
+ * Extends Thread<br>
  * 
+ * When a DataStream is received in the ServerSocket, it will rebuild it as a File and Save it <br>
+ * Call ChatNI to notify the User
  * @author Arthur & Hai An
  *
  */
@@ -20,6 +23,11 @@ public class TCPReceiver extends Thread {
 		System.out.println("Received file");
 		this.socket =socket;
 	}
+	/**
+	 * Build the File from the OutPutStream received
+	 * Save it and notify ChatNI
+	 * 
+	 */
 	@Override
 	public void run() {
 		InputStream in;

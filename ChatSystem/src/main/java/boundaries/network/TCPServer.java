@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 /**
- * 
+ * Create SocketServer use in order to send and receiver File<br>
+ * Extends Thread, always running to check if new Connection can be accept in the ServerSocket
  * @author Arthur & Hai An
  *
  */
@@ -24,6 +25,10 @@ public class TCPServer extends Thread {
 	
 
     @Override
+/**
+ * When the server accept a new connection, call TCPReceiver that will receive the Data
+ * 
+ */
     public void run() {
     	while(true){
     		try {

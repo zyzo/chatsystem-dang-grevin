@@ -113,6 +113,7 @@ public class ChatWindow extends JFrame {
 		            txtrConversation.append("Moi : "+ txtrInputText.getText()+"\n"+"\r");
 		            mChatGUI.performSendMessage(txtrInputText.getText(), mRemoteUser);
 		            txtrInputText.setText("");
+		            e.consume();
 				}
 			}
 		});

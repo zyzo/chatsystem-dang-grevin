@@ -1,6 +1,5 @@
 package boundaries.swing;
 
-import java.io.File;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -86,11 +85,22 @@ public class ChatGUI{
 	}
 
 	public void notifyFileReceiving(User user, String fileName) {
-		chatWindows.get(user).appendMessage(user.getName() + " is sending you a file : " + fileName);
+		ChatWindow window = chatWindows.get(user);
+		if (window == null) {
+			window = chatWindows.put(user, new ChatWindow(this, user));
+		}
+		window.setVisible(true);
+		window.appendMessage(user.getName() + " is sending you a file : " + fileName);
 	}
 
 	public void notifyFileReceived(User user, String fileName) {
-		chatWindows.get(user).appendMessage("File " + fileName + " received");
+		ChatWindow window = chatWindows.get(user);
+		if (window == null) {
+			window = chatWindows.put(user, new ChatWindow(this, user));
+		}
+		window.setVisible(true);
+		chatWindows.get(user).setVisible(true);
+		window.appendMessage("File " + fileName + " received");
 		
 	}
 

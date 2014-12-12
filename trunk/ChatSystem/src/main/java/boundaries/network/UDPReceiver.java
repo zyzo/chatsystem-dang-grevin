@@ -5,7 +5,8 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 /**
- * 
+ * Extends Thread <br>
+ * UDPReceiver will receive every Datagrampacket in the socket. It will call ChatNI that it will parse the new Data of the DatagramPacket
  * @author Arthur & Hai An
  *
  */
@@ -20,6 +21,10 @@ public class UDPReceiver extends Thread {
 		
 	}
     @Override
+    /**
+     * from Thread <br>
+     * Always Running. Call ChatNI when the socket receives a packet. Print it on the Console
+     */
     public void run() {
     	byte[] buffer= new byte[1000];
     	DatagramPacket packet = new DatagramPacket(buffer, buffer.length);

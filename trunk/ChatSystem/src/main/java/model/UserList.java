@@ -4,13 +4,11 @@ package model;
  * @author Arthur & Hai An
  *
  */
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import pattern.observer.Observable;
+import model.observer.Observable;
 
 public class UserList extends Observable{
 

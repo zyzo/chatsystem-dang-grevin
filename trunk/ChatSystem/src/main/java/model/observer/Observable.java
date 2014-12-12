@@ -1,12 +1,8 @@
-package pattern.observer;
+package model.observer;
 
 import java.util.ArrayList;
 import java.util.List;
-/**
- * 
- * @author Arthur & Hai An
- *
- */
+
 public class Observable {
 	private List<Observer> observers = new ArrayList<Observer>();
 	

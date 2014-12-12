@@ -16,6 +16,8 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import boundaries.swing.ChatGUI;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 /**
  * 
  * @author Arthur & Hai An
@@ -46,6 +48,15 @@ public class WelcomeWindow extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					System.out.println("Your nickname " + textField.getText());
+					mChatGUI.performHello(textField.getText());
+				}
+			}
+		});
 		textField.setForeground(new Color(0, 0, 0));
 		textField.setFont(new Font("Comic Sans MS", Font.PLAIN, 15));
 		textField.setBounds(166, 54, 141, 22);

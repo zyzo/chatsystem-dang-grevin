@@ -16,7 +16,11 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import boundaries.swing.ChatGUI;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class WelcomeWindow extends JFrame {
 
 	private JPanel contentPane;

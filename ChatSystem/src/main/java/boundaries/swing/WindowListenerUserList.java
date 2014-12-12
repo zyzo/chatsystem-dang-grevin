@@ -5,7 +5,11 @@ import java.awt.event.WindowListener;
 
 import boundaries.network.ChatNI;
 
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class WindowListenerUserList implements WindowListener{
 
 

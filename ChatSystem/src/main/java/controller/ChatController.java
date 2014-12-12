@@ -12,7 +12,11 @@ import boundaries.swing.ChatGUI;
 import model.User;
 import model.UserList;
 
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class ChatController {
 
 	private static ChatController instance;

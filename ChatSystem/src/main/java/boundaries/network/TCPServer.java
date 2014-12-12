@@ -3,7 +3,11 @@ package boundaries.network;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class TCPServer extends Thread {
 	
 	private ServerSocket server;

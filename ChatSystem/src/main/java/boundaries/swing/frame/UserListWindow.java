@@ -23,7 +23,11 @@ import javax.swing.border.MatteBorder;
 
 import boundaries.swing.ChatGUI;
 import model.User;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class UserListWindow extends JFrame {
 
 	private JPanel contentPane;

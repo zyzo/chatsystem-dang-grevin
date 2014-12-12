@@ -4,7 +4,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 
 public class User {
 

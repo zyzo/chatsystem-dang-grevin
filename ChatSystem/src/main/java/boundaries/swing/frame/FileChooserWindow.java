@@ -11,7 +11,11 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class FileChooserWindow extends JFrame {
 
 	private JPanel contentPane;

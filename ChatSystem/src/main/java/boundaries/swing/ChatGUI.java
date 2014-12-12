@@ -10,7 +10,11 @@ import boundaries.swing.frame.ChatWindow;
 import boundaries.swing.frame.UserListWindow;
 import boundaries.swing.frame.WelcomeWindow;
 import controller.ChatController;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class ChatGUI{
 
     private Map<User, ChatWindow> chatWindows;

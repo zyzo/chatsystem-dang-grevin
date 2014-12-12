@@ -12,7 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import controller.ChatController;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class ChatNI {
 
     private UDPSender udpSender;
@@ -32,7 +36,7 @@ public class ChatNI {
 			udpReceiver = new UDPReceiver(udpsocket,this,1337);
 			udpReceiver.start();
 		} catch (SocketException e) {
-			// TODO Auto-generated catch block
+			System.exit(0);
 			e.printStackTrace();
 		}
     }

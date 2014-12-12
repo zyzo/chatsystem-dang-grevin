@@ -22,7 +22,11 @@ import javax.swing.border.LineBorder;
 
 import model.User;
 import boundaries.swing.ChatGUI;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class ChatWindow extends JFrame {
 
 	private JPanel contentPane;

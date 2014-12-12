@@ -7,7 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class TCPReceiver extends Thread {
 	
     private final Socket socket;

@@ -3,7 +3,11 @@ package boundaries.network;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class JSONUtils {
 
 	public static JSONObject constructHello(String nickname) {
@@ -17,6 +21,7 @@ public class JSONUtils {
 		}
 		return obj;
 	}
+	
 	
 	public static JSONObject constructHelloAck(String nickname) {
 		JSONObject obj = new JSONObject();

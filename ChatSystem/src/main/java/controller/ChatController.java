@@ -11,7 +11,12 @@ import boundaries.swing.ChatGUI;
 
 /**
  * 
- * @author Arthur & Hai An
+ *ChatSystem Controller<br>
+ *Link between ChatNI and ChatGUI<br>
+ *Update UserList in Model<br>
+ * @author Arthur & Hai An<br>
+ *
+ *
  *
  */
 public class ChatController {
@@ -34,31 +39,65 @@ public class ChatController {
         return instance;
     }
 
+/**
+ * 
+ * @param nickname
+ * Nickname of the user of this ChatSystem
+ *
+ */
 	public void performHello(String nickname) {
 		this.setMe(nickname);
 		chatNI.sendHello();
 	}
-	
+/**
+ * Call ChatNI in order to send Goodbye
+ * 
+ */
 	public void performGoodbye(){
 		chatNI.sendGoodBye();
 	}
+/**
+ * 
+ * @param message
+ * 		Message user want to send
+ * @param user
+ * 		Remote user
+ */
 	
 	public void performSendMessage(String message, User user ){
 		chatNI.sendMessage(message, user.getIp());
 	}
 	
-	
+	/**
+	 * 
+	 * @param nickname
+	 * 		nickname of the remote User
+	 * @param ip
+	 * 		ip of the remote User
+	 * 
+	 * Add a new User to the UserList
+	 * 
+	 */
 	public void processHello(String nickname, InetAddress ip){
 		User user = new User(nickname, ip);
 		System.out.println(userlist);
 		
-		//if(!(userlist.getUserList().containsKey(user.getIp().hashCode()))){
 			userlist.addUser(user);
 			System.out.println(userlist.toString());	
 			chatNI.sendHelloAck(user.getIp());
-		//}
 	}
-	
+	/**
+	 * 
+	 * @param message
+	 * 		message receive from the remote user
+	 * @param ip
+	 * 		address ip from the remote user
+	 * @param seq
+	 * 		numero de séquence du message
+	 * 
+	 * Call ChatNI in order to send a MessageAck to the remote User.
+	 * 
+	 */
 	public void receiveMessage(String message, InetAddress ip,  int seq){
 		System.out.println("Reception : " +message);
 		chatNI.sendMessageAck(ip,seq);
@@ -66,6 +105,11 @@ public class ChatController {
 		
 	}
 	
+	/**
+	 * 
+	 * @param nickname
+	 * @param ip
+	 */
 	public void processHelloAck(String nickname, InetAddress ip){
 		User user = new User(nickname,ip);
 		if(!(userlist.getUserList().containsKey(user.getIp().hashCode()))){

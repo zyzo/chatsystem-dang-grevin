@@ -1,16 +1,13 @@
 package controller;
 
-import java.io.File;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
-
-import observer.ObserverUserList;
-import boundaries.network.ChatNI;
-import boundaries.swing.ChatGUI;
 import model.User;
 import model.UserList;
+import model.observer.ObserverUserList;
+import boundaries.network.ChatNI;
+import boundaries.swing.ChatGUI;
 
 /**
  * 
@@ -28,12 +25,8 @@ public class ChatController {
 	private ChatController() {
 		chatNI.setChatControler(this);
 		chatGUI.setChatController(this);
-		createObserverUserList();
+		new ObserverUserList(userlist);
     }
-	
-	public void createObserverUserList(){
-		ObserverUserList observeruserlist = new ObserverUserList(userlist);
-	}
 	
     public static ChatController getInstance() {
         if (instance == null)

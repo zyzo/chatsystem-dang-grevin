@@ -108,7 +108,7 @@ public class ChatNI {
 			}
 			else if(obj.get("type").equals(MessageConstants.TYPE_GOOD_BYE)){
 				System.out.println("GOODBYE receive");
-				chatControler.processGoodbye(obj.getString("userName"), ip);
+				chatControler.processGoodbye(ip);
 			}
 			else if(obj.get("type").equals(MessageConstants.TYPE_MESSAGE)){
 				System.out.println("Message Receive "+ obj.get(MessageConstants.ATT_MESSAGE_DATA).toString());

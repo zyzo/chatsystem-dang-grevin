@@ -6,6 +6,8 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.List;
 
+import javax.activation.MailcapCommandMap;
+
 import model.User;
 
 import org.json.JSONException;
@@ -135,5 +137,4 @@ public class ChatNI {
 		this.chatControler = chatControler;
 	}
 
-	
 }

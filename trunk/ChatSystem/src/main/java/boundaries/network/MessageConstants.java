@@ -1,5 +1,9 @@
 package boundaries.network;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class MessageConstants {
 	
 	public static final String ATT_TYPE = "type";

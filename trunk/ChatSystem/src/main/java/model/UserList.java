@@ -1,5 +1,9 @@
 package model;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;

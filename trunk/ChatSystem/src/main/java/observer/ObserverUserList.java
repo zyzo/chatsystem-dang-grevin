@@ -4,7 +4,11 @@ import model.UserList;
 import boundaries.network.ChatNI;
 import boundaries.swing.ChatGUI;
 import pattern.observer.Observer;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class ObserverUserList extends Observer{
 	
 	public ObserverUserList(UserList userlist){

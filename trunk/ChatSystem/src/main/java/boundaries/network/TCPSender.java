@@ -12,7 +12,11 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
-
+/**
+ * 
+ * @author Arthur & Hai An
+ *
+ */
 public class TCPSender extends Thread {
 	private final String filePath;
     private final InetAddress remoteIp;

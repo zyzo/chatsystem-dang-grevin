@@ -75,9 +75,12 @@ public class ChatController {
 		
 	}
 	
-	public void processGoodbye(String nickname,InetAddress ip){
-		userlist.remove(userlist.getUserList().get(ip.hashCode()));
-		chatGUI.processGoodBye(userlist.getUserList().get(ip.hashCode()));
+	public void processGoodbye(InetAddress ip){
+		User existingUser = userlist.getUserList().get(ip.hashCode());
+		if (existingUser != null) {
+			userlist.remove(existingUser);
+			chatGUI.processGoodBye(userlist.getUserList().get(ip.hashCode()));
+		}
 	}
 	
 	public void performSendFile(String filepath, User user){

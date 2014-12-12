@@ -40,9 +40,10 @@ public class ChatController {
     }
 
 /**
- * 
+ * Call ChatNI in order to send Hello<br>
  * @param nickname
  * Nickname of the user of this ChatSystem
+ *
  *
  */
 	public void performHello(String nickname) {
@@ -57,7 +58,7 @@ public class ChatController {
 		chatNI.sendGoodBye();
 	}
 /**
- * 
+ * Call ChatNI in order to send Message<br>
  * @param message
  * 		Message user want to send
  * @param user
@@ -69,13 +70,13 @@ public class ChatController {
 	}
 	
 	/**
-	 * 
+	 * Add a new User to the UserList<br>
 	 * @param nickname
 	 * 		nickname of the remote User
 	 * @param ip
 	 * 		ip of the remote User
 	 * 
-	 * Add a new User to the UserList
+	 * 
 	 * 
 	 */
 	public void processHello(String nickname, InetAddress ip){
@@ -87,15 +88,15 @@ public class ChatController {
 			chatNI.sendHelloAck(user.getIp());
 	}
 	/**
-	 * 
+	 * Call ChatNI in order to send a MessageAck to the remote User.<br>
 	 * @param message
 	 * 		message receive from the remote user
 	 * @param ip
 	 * 		address ip from the remote user
 	 * @param seq
-	 * 		numero de séquence du message
+	 * 		sequence number of the message
 	 * 
-	 * Call ChatNI in order to send a MessageAck to the remote User.
+	 * 
 	 * 
 	 */
 	public void receiveMessage(String message, InetAddress ip,  int seq){
@@ -106,9 +107,11 @@ public class ChatController {
 	}
 	
 	/**
-	 * 
+	 * Add new User to userList
 	 * @param nickname
+	 * 		nickname of the remote user
 	 * @param ip
+	 * 		address ip from the remote user
 	 */
 	public void processHelloAck(String nickname, InetAddress ip){
 		User user = new User(nickname,ip);
@@ -118,7 +121,11 @@ public class ChatController {
 		
 		
 	}
-	
+/**
+ * 
+ * @param ip
+ * 		Address ip from the remote User
+ */
 	public void processGoodbye(InetAddress ip){
 		User existingUser = userlist.getUserList().get(ip.hashCode());
 		if (existingUser != null) {
@@ -126,17 +133,31 @@ public class ChatController {
 			chatGUI.processGoodBye(userlist.getUserList().get(ip.hashCode()));
 		}
 	}
-	
+	/**
+	 * Call ChatNI to send a File <br>
+	 * @param filepath
+	 * 		path of the file we want to send
+	 * @param user
+	 * 		Remote User
+	 */
 	public void performSendFile(String filepath, User user){
 		chatNI.sendFile(filepath, user.getIp());
 	}
 
 
-
+/**
+ * 
+ * @return User of the ChatSystem
+ */
 	public User getMe() {
 		return me;
 	}
-
+/**
+ * Set the user of this CHatSYstem <br>
+ * Use to keep the nickname and the ip address <br>
+ * @param mename
+ * 			Nickname of the user of this ChatSystem
+ */
 	public void setMe(String mename) {
 		try {
 			User user = new User(mename,InetAddress.getByName("localhost"));
@@ -147,16 +168,29 @@ public class ChatController {
 		}
 		
 	}
-	
+
 		
     public static void main(String[] args) {
     	ChatController.getInstance(); 
     	ChatGUI.getInstance().promptForUsername();
     }
-
+    /**
+     * Call ChatGUI to notify the user of this chatSystem that the file is fully download<br>
+     * @param inetAddress
+     * 		ip address of the remote user
+     * @param fileName
+     * 		name of the file we received
+     */
 	public void notifyFileReceived(InetAddress inetAddress, String fileName) {
 		chatGUI.notifyFileReceived(userlist.getUserList().get(inetAddress.hashCode()), fileName);
 	}
+	/**
+	 * 
+	 * @param inetAddress
+	 * 		ip address of the remote user
+	 * @param fileName
+	 * 		name of the file we received
+	 */
 
 	public void notifyFileReceiving(InetAddress inetAddress, String fileName) {
 		chatGUI.notifyFileReceiving(userlist.getUserList().get(inetAddress.hashCode()), fileName);

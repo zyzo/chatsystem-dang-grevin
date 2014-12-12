@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.RenderingHints.Key;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -23,6 +24,8 @@ import javax.swing.border.LineBorder;
 import model.User;
 import boundaries.swing.ChatGUI;
 import javax.swing.JScrollPane;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 /**
  * 
  * @author Arthur & Hai An
@@ -102,6 +105,17 @@ public class ChatWindow extends JFrame {
 		panelInput.setLayout(null);
 
 		txtrInputText = new JTextArea();
+		txtrInputText.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					System.out.println("Sending Stuff..");
+		            txtrConversation.append("Moi : "+ txtrInputText.getText()+"\n"+"\r");
+		            mChatGUI.performSendMessage(txtrInputText.getText(), mRemoteUser);
+		            txtrInputText.setText("");
+				}
+			}
+		});
 		txtrInputText.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtrInputText.setBounds(3, 3, 323, 49);
 		panelInput.add(txtrInputText);

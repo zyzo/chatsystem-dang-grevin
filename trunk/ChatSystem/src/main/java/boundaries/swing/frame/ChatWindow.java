@@ -22,6 +22,7 @@ import javax.swing.border.LineBorder;
 
 import model.User;
 import boundaries.swing.ChatGUI;
+import javax.swing.JScrollPane;
 /**
  * 
  * @author Arthur & Hai An
@@ -85,9 +86,12 @@ public class ChatWindow extends JFrame {
 		contentPane.add(panelConversation);
 		panelConversation.setLayout(null);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(3, 3, 478, 190);
+		panelConversation.add(scrollPane);
+		
 		txtrConversation = new JTextArea();
-		txtrConversation.setBounds(3, 3, 478, 190);
-		panelConversation.add(txtrConversation);
+		scrollPane.setViewportView(txtrConversation);
 		txtrConversation.setFont(new Font("Arial", Font.PLAIN, 12));
 		txtrConversation.setEditable(false);
 		
@@ -170,6 +174,7 @@ public class ChatWindow extends JFrame {
 	
 	  public void appendMessage(String message){
 	    	txtrConversation.append(message+"\n"+"\r");
+	    	txtrConversation.setCaretPosition(txtrConversation.getDocument().getLength());
 	    }
 
 	public void disableWindow() {

@@ -1,9 +1,6 @@
 package model;
 
 import java.net.InetAddress;
-import java.net.UnknownHostException;
-
-import com.fasterxml.jackson.databind.ser.std.InetAddressSerializer;
 /**
  * Class User with nickname and address ip<br>
  * @author Arthur & Hai An

@@ -3,7 +3,6 @@ package boundaries.network;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
 /**
  * Extends Thread <br>
  * UDPReceiver will receive every Datagrampacket in the socket. It will call ChatNI that it will parse the new Data of the DatagramPacket

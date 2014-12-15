@@ -2,15 +2,14 @@ package boundaries.swing.frame;
 
 import java.awt.Component;
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 /**
  * 
  * @author Arthur & Hai An
@@ -18,6 +17,7 @@ import java.awt.event.MouseEvent;
  */
 public class FileChooserWindow extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JFileChooser fileChooser;
 

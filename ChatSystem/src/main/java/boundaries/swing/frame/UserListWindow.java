@@ -1,7 +1,6 @@
 package boundaries.swing.frame;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,7 +8,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Collection;
 
-import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,8 +19,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
 
-import boundaries.swing.ChatGUI;
 import model.User;
+import boundaries.swing.ChatGUI;
 /**
  * 
  * @author Arthur & Hai An
@@ -30,26 +28,11 @@ import model.User;
  */
 public class UserListWindow extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private DefaultListModel<User> dlm= new DefaultListModel<User>();
 	private ChatGUI mChatGUI;
 	private JList<User> list;
-
-	/**
-	 * Create the frame.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UserListWindow frame = new UserListWindow(ChatGUI.getInstance(), "hoho");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
 	public UserListWindow(ChatGUI chatGUI, String username) {
 		this.mChatGUI = chatGUI;

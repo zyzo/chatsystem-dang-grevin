@@ -1,7 +1,6 @@
 package boundaries.network;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.Test;
 
 public class JSONUtilsTest {

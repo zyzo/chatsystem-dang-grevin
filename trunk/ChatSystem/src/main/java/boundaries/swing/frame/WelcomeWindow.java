@@ -1,9 +1,10 @@
 package boundaries.swing.frame;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -16,8 +17,6 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 import boundaries.swing.ChatGUI;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 /**
  * 
  * @author Arthur & Hai An
@@ -25,6 +24,7 @@ import java.awt.event.KeyEvent;
  */
 public class WelcomeWindow extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JLabel lblYourNickname;

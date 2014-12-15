@@ -169,11 +169,6 @@ public class ChatController {
 		
 	}
 
-		
-    public static void main(String[] args) {
-    	ChatController.getInstance(); 
-    	ChatGUI.getInstance().promptForUsername();
-    }
     /**
      * Call ChatGUI to notify the user of this chatSystem that the file is fully download<br>
      * @param inetAddress

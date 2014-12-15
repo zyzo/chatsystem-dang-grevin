@@ -166,9 +166,9 @@ public class ChatGUI{
  * 		Remote User
  */
 	public void processGoodBye(User user) {
-		ChatWindow window;
-		if ((window = chatWindows.get(user)) != null) {
-			chatWindows.get(user).disableWindow();
+		ChatWindow window = chatWindows.get(user);
+		if (window != null) {
+			window.disableWindow();
 		}
 	}
 	

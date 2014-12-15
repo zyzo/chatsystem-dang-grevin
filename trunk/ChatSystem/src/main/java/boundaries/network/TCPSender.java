@@ -1,7 +1,6 @@
 package boundaries.network;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -9,7 +8,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 /**
@@ -21,14 +19,10 @@ import java.net.Socket;
  */
 public class TCPSender extends Thread {
 	private final String filePath;
-    private final InetAddress remoteIp;
     private Socket socket;
-    private final int destPort;
 
     TCPSender(String filePath, InetAddress remoteIp, int destPort) {
-        this.destPort = destPort;
         this.filePath = filePath;
-        this.remoteIp = remoteIp;
         System.out.println("TCPSender : New TCP Sender created");
 
         //creates the socket

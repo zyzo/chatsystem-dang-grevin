@@ -11,12 +11,10 @@ import boundaries.swing.frame.WelcomeWindow;
 import controller.ChatController;
 /**
  * 
+ *
+ * Interface between the Windows, and the Controller. <br>
+ * Create the WelcomeWindow, the Userlist and the chat windows
  * @author Arthur & Hai An
- *
- *
- *Interface between the Windows, and the Controller. <br>
- *
- *Create the WelcomeWindow, the Userlist and the chat windows
  *
  */
 public class ChatGUI{

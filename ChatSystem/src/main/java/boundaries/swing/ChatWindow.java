@@ -1,4 +1,4 @@
-package boundaries.swing.frame;
+package boundaries.swing;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -23,7 +23,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import model.User;
-import boundaries.swing.ChatGUI;
 /**
  * The 1-on-1 chat window to remote user <br>
  * It allows user to send outgoing/visualize incoming message and file

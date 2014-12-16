@@ -1,16 +1,16 @@
-package boundaries.swing.frame;
+package boundaries.swing;
 
 import java.awt.EventQueue;
 
-import model.User;
 import boundaries.swing.ChatGUI;
+import boundaries.swing.WelcomeWindow;
 
-public class ChatWindowTest {
+public class WelcomeWindowTest {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ChatWindow frame = new ChatWindow(ChatGUI.getInstance(), new User("it's Me"));
+					WelcomeWindow frame = new WelcomeWindow(ChatGUI.getInstance());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

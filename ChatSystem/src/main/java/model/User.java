@@ -42,10 +42,5 @@ public class User {
 		this.ip = ip;
 	}
 
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return name.hashCode() + ip.hashCode();
-	}
 
 }

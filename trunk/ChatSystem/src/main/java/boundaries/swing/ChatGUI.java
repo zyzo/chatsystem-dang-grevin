@@ -11,9 +11,8 @@ import boundaries.swing.frame.WelcomeWindow;
 import controller.ChatController;
 /**
  * 
- *
- * Interface between the Windows, and the Controller. <br>
- * Create the WelcomeWindow, the Userlist and the chat windows
+ * Interface between the graphical windows, and the rest of the system. <br>
+ * It contains a <code>WelcomeWindow</code>, a </code>UserListWindow</code> and a list of <code>ChatWindow</code>
  * @author Arthur & Hai An
  *
  */

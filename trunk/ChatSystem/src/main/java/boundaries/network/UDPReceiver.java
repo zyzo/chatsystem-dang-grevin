@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 /**
- * Extends Thread <br>
- * UDPReceiver will receive every Datagrampacket in the socket. It will call ChatNI that it will parse the new Data of the DatagramPacket
+ * UDPReceiver is the receiving entity of all UDP packets
+ * On <code>start</code>, the thread will start waiting for incoming UDP packets
  * @author Arthur & Hai An
- *
  */
 public class UDPReceiver extends Thread {
 	
@@ -21,8 +20,8 @@ public class UDPReceiver extends Thread {
 	}
     @Override
     /**
-     * from Thread <br>
-     * Always Running. Call ChatNI when the socket receives a packet. Print it on the Console
+     * Always wait for incoming packets
+     * When receiving a packet, it will pass the packet to ChatNI for further processing
      */
     public void run() {
     	byte[] buffer= new byte[1000];

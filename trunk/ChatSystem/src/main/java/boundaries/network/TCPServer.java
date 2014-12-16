@@ -3,8 +3,9 @@ package boundaries.network;
 import java.io.IOException;
 import java.net.ServerSocket;
 /**
- * Create SocketServer use in order to send and receiver File<br>
- * Extends Thread, always running to check if new Connection can be accept in the ServerSocket
+ * TCP <code>ServerSocket</code> in order to send and receiver File<br>
+ * On <code>start()<code>, TCPServer runs continuously
+ * to check if a new TCP connection request arrives
  * @author Arthur & Hai An
  *
  */
@@ -12,6 +13,11 @@ public class TCPServer extends Thread {
 	
 	private ServerSocket server;
 	
+	/**
+	 * 
+	 * @param port
+	 * 		port to listen to
+	 */
 	public TCPServer(int port){
 		try {
 			server = new ServerSocket(port);
@@ -24,10 +30,11 @@ public class TCPServer extends Thread {
 	
 
     @Override
-/**
- * When the server accept a new connection, call TCPReceiver that will receive the Data
- * 
- */
+	/**
+	 * When the server accept a new connection, 
+	 * create a new TCPReceiver that will receive the Data
+	 * 
+	 */
     public void run() {
     	while(true){
     		try {

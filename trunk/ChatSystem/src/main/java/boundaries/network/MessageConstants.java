@@ -1,5 +1,6 @@
 package boundaries.network;
 /**
+ * Declarations of JSON messages formats 
  * 
  * @author Arthur & Hai An
  *

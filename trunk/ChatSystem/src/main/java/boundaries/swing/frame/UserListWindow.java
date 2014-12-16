@@ -23,6 +23,7 @@ import model.User;
 import boundaries.swing.ChatGUI;
 /**
  * 
+ * The window with interactive list of connected users <br>
  * @author Arthur & Hai An
  *
  */

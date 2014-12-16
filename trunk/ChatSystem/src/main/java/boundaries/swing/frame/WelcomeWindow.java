@@ -18,7 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import boundaries.swing.ChatGUI;
 /**
- * 
+ * The starting window which greets user and asks for username
  * @author Arthur & Hai An
  *
  */

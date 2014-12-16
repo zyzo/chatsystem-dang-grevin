@@ -2,7 +2,7 @@ package model;
 
 import java.net.InetAddress;
 /**
- * Class User with nickname and address ip<br>
+ * Model used to represents a connected user
  * @author Arthur & Hai An
  *
  */

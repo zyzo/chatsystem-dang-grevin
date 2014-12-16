@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import model.User;
-import boundaries.swing.frame.ChatWindow;
-import boundaries.swing.frame.UserListWindow;
-import boundaries.swing.frame.WelcomeWindow;
 import controller.ChatController;
 /**
  * 

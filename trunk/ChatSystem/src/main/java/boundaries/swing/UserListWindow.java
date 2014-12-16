@@ -1,4 +1,4 @@
-package boundaries.swing.frame;
+package boundaries.swing;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -20,7 +20,6 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.MatteBorder;
 
 import model.User;
-import boundaries.swing.ChatGUI;
 /**
  * 
  * The window with interactive list of connected users <br>

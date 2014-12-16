@@ -1,4 +1,4 @@
-package boundaries.swing.frame;
+package boundaries.swing;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -15,8 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-
-import boundaries.swing.ChatGUI;
 /**
  * The starting window which greets user and asks for username
  * @author Arthur & Hai An

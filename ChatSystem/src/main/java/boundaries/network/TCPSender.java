@@ -11,8 +11,8 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 /**
- * Use to Send File
- * Extends Thread in order to send File and Use THe ChatSystem at the same time.
+ * When <code>start()</code> method called on TCPReceiver, it will send
+ * the given file as TCP stream to the given couple IP address - port
  * 
  * @author Arthur & Hai An
  *
@@ -21,7 +21,16 @@ public class TCPSender extends Thread {
 	private final String filePath;
     private Socket socket;
 
-    TCPSender(String filePath, InetAddress remoteIp, int destPort) {
+    /**
+     * 
+     * @param filePath
+     *      absolute path to the file to send
+     * @param remoteIp
+     * 		destination IP address
+     * @param destPort
+     * 		destination port
+     */
+    public TCPSender(String filePath, InetAddress remoteIp, int destPort) {
         this.filePath = filePath;
         System.out.println("TCPSender : New TCP Sender created");
 

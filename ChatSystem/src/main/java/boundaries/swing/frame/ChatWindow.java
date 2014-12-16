@@ -25,7 +25,8 @@ import javax.swing.border.LineBorder;
 import model.User;
 import boundaries.swing.ChatGUI;
 /**
- * 
+ * The 1-on-1 chat window to remote user <br>
+ * It allows user to send outgoing/visualize incoming message and file
  * @author Arthur & Hai An
  *
  *

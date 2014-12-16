@@ -1,8 +1,6 @@
 package model;
 /**
  * Class which keep the userlist of the ChatSystem<br>
- * Map<Integer,User>, ip.hashcode() is the key to this map<br>
- * Extends Observable <br>
  * @author Arthur & Hai An
  *
  */

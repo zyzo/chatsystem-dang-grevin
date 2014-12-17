@@ -28,8 +28,8 @@ public class TCPReceiver extends Thread {
 		this.socket =socket;
 	}
 	/**
-	 * Build the File from the OutPutStream received
-	 * Save it and notify ChatNI
+	 * Build the file from the OutPutStream received <br>
+	 * Save it to application folder and notify ChatNI
 	 * 
 	 */
 	@Override

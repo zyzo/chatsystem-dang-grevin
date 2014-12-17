@@ -4,8 +4,8 @@ package boundaries.network;
 import org.json.JSONException;
 import org.json.JSONObject;
 /**
- * Util Class which create the Message we need in our ChatSystem
- * Import JSOn, create JSOn message
+ * Util class which creates JSON messages compliant
+ * to defined formats of the TD group B
  * 
  * @author Arthur & Hai An
  *

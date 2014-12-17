@@ -3,8 +3,8 @@ package boundaries.network;
 import java.io.IOException;
 import java.net.ServerSocket;
 /**
- * TCP <code>ServerSocket</code> in order to send and receiver File<br>
- * On <code>start()<code>, TCPServer runs continuously
+ * TCPServer is the listener of incoming TCP connection establishment requests.
+ * On <code>start()</code>, TCPServer runs continuously
  * to check if a new TCP connection request arrives
  * @author Arthur & Hai An
  *

@@ -11,7 +11,7 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 /**
- * When <code>start()</code> method called on TCPReceiver, it will send
+ * When <code>start()</code> method called on TCPSender, it will send
  * the given file as TCP stream to the given couple IP address - port
  * 
  * @author Arthur & Hai An

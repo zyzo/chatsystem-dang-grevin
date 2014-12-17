@@ -12,7 +12,8 @@ import controller.ChatController;
 /**
  * Interface between network entities (UDP&TCP) and
  * other parts of the system (<code>ChatController</code>)<br>
- * Create UDPSender, UDPReceiver, TCPServeur.
+ * Controller of all network entities : UDPSender, UDPReceiver, TCPServer.
+ * 
  * @author Arthur & Hai An
  *
  */

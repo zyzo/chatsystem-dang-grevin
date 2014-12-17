@@ -1,11 +1,17 @@
 #summary Code checkout instructions
 
-= Details =
+= Branches =
 
 There are two repositories to checkout from : 
-   1. Development branch : 
-         https://chatsystem-dang-grevin.googlecode.com/svn/trunk/ChatSystem
-   2. Released version (v1.0.0) : 
-         https://chatsystem-dang-grevin.googlecode.com/svn/tags/ChatSystem1.0.0
+   * Development branch : 
+         http://chatsystem-dang-grevin.googlecode.com/svn/trunk/ChatSystem
+   * Released version (v1.0.0) : 
+         http://chatsystem-dang-grevin.googlecode.com/svn/tags/ChatSystem1.0.0
+
+= Checkout Instructions ==
+
+For example, if you want to checkout a read-only version of the development branch, type this in the command line :  
+   svn checkout http://chatsystem-dang-grevin.googlecode.com/svn/trunk/ChatSystem
+ 
 
 _Just want to_ [InstallationInstructions download the app]?

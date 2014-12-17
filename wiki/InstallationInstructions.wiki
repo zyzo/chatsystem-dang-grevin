@@ -1,6 +1,6 @@
 #summary Guide to download and run the application
 
-== You need to follow these steps to use the application ==
+== You need to follow these steps to download and use the application ==
 
   * Download the jar file from [https://sourceforge.net/projects/chatsysteminsa/ sourceforge]
 

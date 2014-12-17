@@ -43,8 +43,11 @@ public class ChatGUI{
      * 		Remote User
      */
     public void createChatWindow(User user) {
-        chatWindows.put(user, new ChatWindow(this, user));
-        chatWindows.get(user).setVisible(true);
+    	if(chatWindows.get(user)==null){
+	        chatWindows.put(user, new ChatWindow(this, user));
+	        System.out.println("CREATION CHATWINDOW with " + user.getName());
+    	}
+    	chatWindows.get(user).setVisible(true);
     }
     /**
      * Call ChatController and display the UserListWindow

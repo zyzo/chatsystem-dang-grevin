@@ -12,6 +12,6 @@ http://etud.insa-toulouse.fr/~hadang/ChatSystem/img/sourceforge.png
   * For LINUX users, in the command line :
     * give executable right : chmod u+x ChatSystem1.0.0.jar
     * run the file          : ./ChatSystem1.0.0.jar
-  * For Window users, right click the file > Open
+  * For Window users : right click the file > Open
 
 Or maybe you want to [CheckoutInstructions checkout the code]? 

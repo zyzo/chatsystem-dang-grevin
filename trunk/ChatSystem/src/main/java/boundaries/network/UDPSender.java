@@ -15,7 +15,6 @@ public class UDPSender {
 	private int port;
 	
 	/**
-	 * 
 	 * @param socket
 	 * 		socket for sending the packet
 	 * @param port
@@ -26,7 +25,7 @@ public class UDPSender {
 		this.port=port;
 	}
 	/**
-	 * Build the DatagramPacket, and send it, Print it on the console
+	 * Build the DatagramPacket and send it, Print it on the console
 	 * @param buffer
 	 * 		Contains the object that will be send to the remote User
 	 * @param address

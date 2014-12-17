@@ -3,7 +3,7 @@ package boundaries.network;
 import java.io.IOException;
 import java.net.ServerSocket;
 /**
- * TCPServer is the listener of incoming TCP connection establishment requests.
+ * TCPServer is the listener of incoming TCP connection establishment requests. <br>
  * On <code>start()</code>, TCPServer runs continuously
  * to check if a new TCP connection request arrives
  * @author Arthur & Hai An
@@ -31,8 +31,8 @@ public class TCPServer extends Thread {
 
     @Override
 	/**
-	 * When the server accept a new connection, 
-	 * create a new TCPReceiver that will receive the Data
+	 * When the server receives and accepts a new connection request, 
+	 * it creates a new TCPReceiver that will receive the data
 	 * 
 	 */
     public void run() {

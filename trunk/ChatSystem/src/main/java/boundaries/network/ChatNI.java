@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import controller.ChatController;
 /**
  * Interface between network entities (UDP&TCP) and
- * other parts of the system (<code>ChatController</code>)<br>
+ * other parts of the system <br>
  * Controller of all network entities : UDPSender, UDPReceiver, TCPServer.
  * 
  * @author Arthur & Hai An

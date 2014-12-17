@@ -1,13 +1,6 @@
-#summary Guide to install and run the application
+#summary Guide to download and run the application
 
-= Introduction =
-
-
-
-
-= Details =
-
-You need to follow these steps to use the application : 
+== You need to follow these steps to use the application ==
 
   * Download the jar file from [https://sourceforge.net/projects/chatsysteminsa/ sourceforge]
 
@@ -19,4 +12,4 @@ You need to follow these steps to use the application :
     * run the file          : ./ChatSystem1.0.0.jar
 
 
-Or maybe you want to checkout the code? 
+Or maybe you want to checkout [CheckoutInstructions the code]? 

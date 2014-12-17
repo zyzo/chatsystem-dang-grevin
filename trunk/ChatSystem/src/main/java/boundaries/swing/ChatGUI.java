@@ -44,11 +44,10 @@ public class ChatGUI{
      */
     public void createChatWindow(User user) {
     	if(chatWindows.get(user)==null){
-        chatWindows.put(user, new ChatWindow(this, user));
-        chatWindows.get(user).setVisible(true);
-        System.out.println("CREATION CHATWINDOW with " + user.getName());
-  
+	        chatWindows.put(user, new ChatWindow(this, user));
+	        System.out.println("CREATION CHATWINDOW with " + user.getName());
     	}
+    	chatWindows.get(user).setVisible(true);
     }
     /**
      * Call ChatController and display the UserListWindow

@@ -11,7 +11,7 @@ import boundaries.swing.ChatGUI;
 
 /**
  * 
- *	This class acts as the main controller of the system and directing communication
+ *	This class acts as the main controller of the system and directs communication
  *  between other parts <br>
  *	Link between ChatNI and ChatGUI<br>
  *	Update UserList in Model<br>

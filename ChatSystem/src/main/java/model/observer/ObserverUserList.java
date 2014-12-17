@@ -3,8 +3,9 @@ package model.observer;
 import model.UserList;
 import boundaries.swing.ChatGUI;
 /**
- * Extends Observer <br>
- * Whe a change happends in the UserList, ObserverUserList react and call the ChatGui in order to update the UserList on the UserListWindow of the User.
+ * Linker between the UserList model and the display users list via GUI <br>
+ * When a change happens in the <code>UserList</code>, <code>ObserverUserList</code> gets notified and <br>
+ * calls updateList() on <code>ChatGUI</code>
  * @author Arthur & Hai An
  *
  */

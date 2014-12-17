@@ -22,7 +22,8 @@ import javax.swing.border.MatteBorder;
 import model.User;
 /**
  * 
- * The window with interactive list of connected users <br>
+ * The window with real-time list of connected users <br>
+ * The user's list is interactive : clicking on a username open a ChatWindow with the corresponding user
  * @author Arthur & Hai An
  *
  */

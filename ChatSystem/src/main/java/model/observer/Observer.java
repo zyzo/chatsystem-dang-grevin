@@ -2,7 +2,7 @@ package model.observer;
 
 import model.UserList;
 /**
- * 
+ * <code>Observer</code> class in the Observer Pattern
  * @author Arthur & Hai An
  *
  */

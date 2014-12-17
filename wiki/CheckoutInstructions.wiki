@@ -1,0 +1,11 @@
+#summary Code checkout instructions
+
+= Details =
+
+There are two repositories to checkout from : 
+   1. Development branch : 
+         https://chatsystem-dang-grevin.googlecode.com/svn/trunk/ChatSystem
+   2. Released version (v1.0.0) : 
+         https://chatsystem-dang-grevin.googlecode.com/svn/tags/ChatSystem1.0.0
+
+_Just want to [InstallationInstructions download the app]_?

@@ -8,6 +8,8 @@ http://etud.insa-toulouse.fr/~hadang/ChatSystem/img/sourceforge.png
 
 
   * Move the downloaded file to a folder of your choice (knowing that others can send you files which will be stored in that same folder)
+  
+  * Make sure [http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html JRE] is installed 
 
   * For LINUX users, in the command line :
     * give executable right : chmod u+x ChatSystem1.0.0.jar

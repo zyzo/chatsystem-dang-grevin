@@ -4,6 +4,8 @@
 
   * Download the jar file from [https://sourceforge.net/projects/chatsysteminsa/ sourceforge]
 
+http://etud.insa-toulouse.fr/~hadang/ChatSystem/img/sourceforge.png
+
 
   * Move the downloaded file to a folder of your choice (knowing that others can send you files which will be stored in that same folder)
 

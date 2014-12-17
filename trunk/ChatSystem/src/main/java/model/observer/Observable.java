@@ -3,9 +3,8 @@ package model.observer;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * from Pattern Observer
- * A class from the model need to extends the class Observable in order to become Observable
- * 
+ * A class extending <code>Observable</code> becomes observable 
+ * by any registered <code>Observer</code>
  * @author Arthur & Hai An
  *
  */

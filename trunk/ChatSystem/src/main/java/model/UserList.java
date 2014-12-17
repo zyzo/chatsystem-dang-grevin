@@ -1,15 +1,16 @@
 package model;
-/**
- * Class which keep the userlist of the ChatSystem<br>
- * @author Arthur & Hai An
- *
- */
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import model.observer.Observable;
 
+/**
+ * Model used to represents the list of connected users
+ * @author Arthur & Hai An
+ *
+ */
 public class UserList extends Observable{
 
 	private Map<Integer,User> userList;

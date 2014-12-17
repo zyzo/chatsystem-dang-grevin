@@ -1,12 +1,12 @@
 package model;
 
 import java.net.InetAddress;
+
 /**
  * Model used to represents a connected user
  * @author Arthur & Hai An
  *
  */
-
 public class User {
 
     private String name;

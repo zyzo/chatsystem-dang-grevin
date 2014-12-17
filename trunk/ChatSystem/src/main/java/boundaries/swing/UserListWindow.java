@@ -78,7 +78,6 @@ public class UserListWindow extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				if(e.getClickCount()==2){
-					System.out.println("CREATION CHATWINDOW with " + list.getSelectedValue().getName());
 					mChatGUI.createChatWindow(list.getSelectedValue());
 				}
 			}

@@ -1,0 +1,22 @@
+#summary Guide to install and run the application
+
+= Introduction =
+
+
+
+
+= Details =
+
+You need to follow these steps to use the application : 
+
+  * Download the jar file from [https://sourceforge.net/projects/chatsysteminsa/ sourceforge]
+
+
+  * Move the downloaded file to a folder of your choice (knowing that others can send you files which will be stored in that same folder)
+
+  * For LINUX users, in the command line :
+    * give executable right : chmod u+x ChatSystem1.0.0.jar
+    * run the file          : ./ChatSystem1.0.0.jar
+
+
+Or maybe you want to checkout the code? 

@@ -2,7 +2,7 @@
 
 = Branches =
 
-There are two repositories to checkout from : 
+There are two branches to checkout from : 
    * Development branch : 
          http://chatsystem-dang-grevin.googlecode.com/svn/trunk/ChatSystem
    * Released version (v1.0.0) : 

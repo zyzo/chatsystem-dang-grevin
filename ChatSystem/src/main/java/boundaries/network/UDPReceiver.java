@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 /**
- * UDPReceiver is the receiving entity of all UDP packets
+ * UDPReceiver is the receiving entity of incoming UDP packets
  * On <code>start</code>, the thread will start waiting for incoming UDP packets
  * @author Arthur & Hai An
  */

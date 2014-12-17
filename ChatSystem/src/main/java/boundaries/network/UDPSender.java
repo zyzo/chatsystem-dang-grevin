@@ -5,7 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 /**
- * UDPSender is the Class who send DatagramPacket to the remote User
+ * UDPSender is the sender of DatagramPackets
  * @author Arthur & Hai An
  *
  */

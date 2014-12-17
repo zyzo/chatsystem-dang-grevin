@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 /**
- * When <code>start()</code> method called on TCPReceiver, it will read
+ * When <code>start()</code> method called on TCPReceiver, a new thread is created to read
  * TCP file stream from socket and save it to the application folder
  * @author Arthur & Hai An
  *
